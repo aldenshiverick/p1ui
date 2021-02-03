@@ -46,9 +46,9 @@ function generateNonce(length) {
 }
 
 
-if (!appClientID || !environmentId) {
+if (!appClientID || !environmentID) {
 
-  alert('Be sure to edit js/auth.js with your environmentId and clientId');
+  alert('Be sure to edit js/auth.js with your environmentID and clientId');
 
 }
 
@@ -83,7 +83,7 @@ function exJax(method, url, callback, contenttype, payload) {
 const authorizationUrl =
   authUrl +
   '/' +
-  environmentId +
+  environmentID +
   '/as/authorize?client_id=' +
   appClientID +
   '&response_type=' +
@@ -221,7 +221,7 @@ function validatePassword() {
   });
   console.log('payload is ' + payload);
   let url = $('#validatePasswordUrl').val();
-  //let url = (authUrl + environmentId + '/flows/' + flowId);
+  //let url = (authUrl + environmentID + '/flows/' + flowId);
   console.log('url is: ' + url);
   let contenttype = 'application/vnd.pingidentity.usernamePassword.check+json';
   console.log('contenttype is ' + contenttype);
@@ -275,7 +275,7 @@ function validateOtp() {
     otp: otp
   });
   //let url = $('#validateOtpUrl').val();
-  let url = (authUrl + '/' + environmentId + '/flows/' + flowId);
+  let url = (authUrl + '/' + environmentID + '/flows/' + flowId);
   let contenttype ='application/vnd.pingidentity.otp.check+json';
   //$('#validateOtpContentType').val();
   console.log('url :' + url);
@@ -286,10 +286,10 @@ function validateOtp() {
 }
 
 function continue_push() {
-  //location.href=authUrl + '/' + environmentId + '/flows/' + flowId;
+  //location.href=authUrl + '/' + environmentID + '/flows/' + flowId;
   console.log('continue push called');
   //let url = $('#pushResumeUrl');
-  let url = authUrl + '/' + environmentId + '/flows/' + flowId;
+  let url = authUrl + '/' + environmentID + '/flows/' + flowId;
   let contenttype ='application/json';
   //location.href = $('#pushResumeUrl').val();
   console.log('url ' + url);
