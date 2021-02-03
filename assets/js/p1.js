@@ -1,18 +1,18 @@
 //p14C Variables
-const environmentID = ''; // env ID from p1 console
-const appBaseURL = ''; //Where this app lives
+const environmentID = 'ca3ad373-df71-4eb5-a3b5-76439336e1d6'; // env ID from p1 console
+const baseURL = 'https://morgapp.ping-eng.com/p1ui'; //Where this app lives
 
 const scopes = 'openid profile email address phone p1:update:user p1:read:user'; // default scopes to request
 const responseType = 'token id_token'; // tokens to recieve
 
-const landingUrl = baseUrl + 'myP14CDemo/index-finance.html'; // url to send the person once authentication is complete
+const landingUrl = baseUrl + '/index.html'; // url to send the person once authentication is complete
 const logoutUrl = baseUrl + 'logout/'; // whitelisted url to send a person who wants to logout
-const redirectUri = baseUrl + 'myP14CDemo/index-finance.html'; // whitelisted url P14C sends the token or code to
+const redirectUri = baseUrl + '/login.html'; // whitelisted url P14C sends the token or code to
 
-const workerClientID = ''; //used to create/manage users
-const workerClientSecret = '';
+const workerClientID = 'cedd8115-38d5-49f6-8bd8-043505fd83c6'; //used to create/manage users
+const workerClientSecret = 'EAarQcJAyAsS2QZN46MSrQD_nUHUK9~b2liHYlULE3jKne1EPIFwGG3Jayo6upBQ';
 
-const appClientID = '7606b740-bb4b-4253-b449-aabf5b66e7eb';
+const appClientID = 'dd2157ed-6f2b-4de9-81e3-11feb2b19302';
 const authUrl = 'https://auth.pingone.com';
 const apiUrl = 'https://api.pingone.com/v1';
 
