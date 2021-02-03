@@ -46,7 +46,7 @@ function generateNonce(length) {
 }
 
 
-if (!clientId || !environmentId) {
+if (!appClientID || !environmentId) {
 
   alert('Be sure to edit js/auth.js with your environmentId and clientId');
 
@@ -85,7 +85,7 @@ const authorizationUrl =
   '/' +
   environmentId +
   '/as/authorize?client_id=' +
-  clientId +
+  appClientID +
   '&response_type=' +
   responseType +
   '&redirect_uri=' +
