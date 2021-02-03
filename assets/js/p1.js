@@ -1,6 +1,6 @@
 //p14C Variables
 const environmentID = 'ca3ad373-df71-4eb5-a3b5-76439336e1d6'; // env ID from p1 console
-const baseURL = 'https://morgapp.ping-eng.com/p1ui'; //Where this app lives
+const baseUrl = 'https://morgapp.ping-eng.com/p1ui'; //Where this app lives
 
 const scopes = 'openid profile email address phone p1:update:user p1:read:user'; // default scopes to request
 const responseType = 'token id_token'; // tokens to recieve
