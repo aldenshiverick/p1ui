@@ -74,8 +74,10 @@ function initiateLogon() {
       console.log(data);
       let userid = data._embedded.user.id;
       console.log('user is: ' + userid);
-    Cookies.set('userid', userid,{ sameSite: 'strict' });
-    Cookies.set(data.val(authorizeResponse.access_token),'accessToken');
+      let accessToken = data.authorizeResponse.access_token
+    Cookies.set('userid', userAPIid,{ sameSite: 'strict' });
+    Cookies.set('AT',accessToken, { sameSite: 'strict' });
+    window.location.href = "https://morgapp.ping-eng.com/p1ui";
   }
   
    //----What should we do? ----//
