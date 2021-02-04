@@ -24,7 +24,6 @@ const regexUpper = new RegExp('(?=.*[A-Z])');
 const regexNumeric = new RegExp('(?=.*[0-9])');
 const regexSpecial = new RegExp('(?=.*[~!@#\$%\^&\*\)\(\|\;\:\,\.\?\_\-])');
 const regexLength = new RegExp('(?=.{8,})');
-const callback = '';
 
 
 // simple function to parse json web token
@@ -116,7 +115,7 @@ function initiateLogon() {
     method: method
   })
   .done(function(data) {
-    callback(data);
+    nextStep(data);
   })
   .fail(function(data) {
     console.log('ajax call failed');
