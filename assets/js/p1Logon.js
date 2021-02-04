@@ -176,6 +176,7 @@ function initiateLogon() {
         $('#ppDiv').hide('');
         console.log('Finish logon called');
         console.log(data);
+        console.log('resueme url is: '+ data.resumeUrl);
         finishLogon(data.resumeUrl);
         break;
       case 'PROFILE_DATA_REQUIRED':
