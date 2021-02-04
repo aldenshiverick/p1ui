@@ -104,9 +104,10 @@ const authorizationUrl =
 
 //----initate logon ---- //
 function initiateLogon(){
+  console.log('initiateLogon called')
   let method = 'POST';
-   let url = authorizationUrl;
-   exJax(method, url, nextStep);
+  let url = authorizationUrl;
+  exJax(method, url, nextStep);
 }
 
 
