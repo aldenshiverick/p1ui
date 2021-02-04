@@ -53,9 +53,9 @@ function initiateLogon() {
       $.ajax({
         url: url,
         method: method,
-        beforeSend: function(xhr) {
-            xhr.setRequestHeader('Authorization', at);
-          }
+        xhrFields: {
+            withCredentials: true
+        }
       })
       .done(function(data) {
         console.log(data);
