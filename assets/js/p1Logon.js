@@ -58,7 +58,7 @@ function initiateLogon() {
         }
       })
       .done(function(data) {
-        console.log(data);
+        setCookies(data);
       })
       .fail(function(data) {
         console.log('ajax call failed');
