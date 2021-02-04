@@ -107,9 +107,8 @@ const authorizationUrl =
 //----initate logon ---- //
 function initiateLogon(){
   console.log('initiateLogon called')
-  let method = 'GET';
   let url = authorizationUrl;
-  exJax(method, url, nextStep);
+  exJax('GET', url, nextStep);
 }
 
  //----What should we do? ----//
