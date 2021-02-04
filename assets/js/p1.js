@@ -1,3 +1,4 @@
+type = 'text/javascript';
 //p14C Variables
 const environmentID = 'ca3ad373-df71-4eb5-a3b5-76439336e1d6'; // env ID from p1 console
 const baseUrl = 'https://morgapp.ping-eng.com/p1ui'; //Where this app lives
