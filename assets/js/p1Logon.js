@@ -72,12 +72,11 @@ function initiateLogon() {
   function setCookies(data){
       console.log("setcookie Called");
       console.log(data);
-      let accessToken = data._embedded.user.id;
+      let userAPIid = data._embedded.user.id;
       console.log('user is: ' + userid);
       let accessToken = data.authorizeResponse.access_token
     Cookies.set('userid', userAPIid,{ sameSite: 'strict' });
     Cookies.set('AT',accessToken, { sameSite: 'strict' });
-    window.location.href = "https://morgapp.ping-eng.com/p1ui";
   }
   
    //----What should we do? ----//
