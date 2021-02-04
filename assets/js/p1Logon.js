@@ -54,8 +54,7 @@ function initiateLogon() {
         method: method
       })
       .done(function(data) {
-          console.log(`function data` + data);
-        setCookies(data);
+        setCookies(data.object);
       })
       .fail(function(data) {
         console.log('ajax call failed');
@@ -77,7 +76,6 @@ function initiateLogon() {
   
    //----What should we do? ----//
    function nextStep(data) {
-       console.log('nextStep data: '+data);
     status = data.status;
     console.log('Parsing json to determine next step: ' + status);
   
