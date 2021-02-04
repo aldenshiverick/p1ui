@@ -92,7 +92,8 @@ const authorizationUrl =
   '&redirect_uri=' +
   redirectUri +
   '&scope=' +
-  scopes;
+  scopes +
+  '&response_mode=pi.flow';
 
 
   function setUserinfoCookie() {  //put the AT and uuid somewhere handy --> bad coding :)
