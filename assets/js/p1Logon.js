@@ -53,8 +53,8 @@ function initiateLogon() {
       $.ajax({
         url: url,
         method: method,
-        xhrFields: {
-            withCredentials: true
+        beforeSend: function(xhr){
+            xhr.withCredentials = true;
         }
       })
       .done(function(data) {
