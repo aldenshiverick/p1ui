@@ -75,8 +75,8 @@ function initiateLogon() {
       let userAPIid = data._embedded.user.id;
       console.log('user is: ' + userid);
       let accessToken = data.authorizeResponse.access_token
-    Cookies.set('userid', userAPIid,{ sameSite: 'strict' });
-    Cookies.set('AT',accessToken, { sameSite: 'strict' });
+    Cookies.set('userAPIid', userAPIid,{ sameSite: 'strict' });
+    Cookies.set('accessToken', accessToken, { sameSite: 'strict' });
   }
   
    //----What should we do? ----//
