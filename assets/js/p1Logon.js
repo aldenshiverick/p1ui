@@ -74,7 +74,7 @@ function initiateLogon() {
       console.log(data);
       let userid = data._embedded.user.id;
       console.log('user is: ' + userid);
-    Cookies.set(userid,'userID');
+    Cookies.set('userid', userid,{ sameSite: 'strict' });
     Cookies.set(data.val(authorizeResponse.access_token),'accessToken');
   }
   
