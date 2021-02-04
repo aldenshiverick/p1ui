@@ -16,7 +16,7 @@ const appClientID = 'dd2157ed-6f2b-4de9-81e3-11feb2b19302';
 const authUrl = 'https://auth.pingone.com';
 const apiUrl = 'https://api.pingone.com/v1';
 
-const flowId = getUrlParameter('flowId');
+const flowId = '';
 
 const regexLower = new RegExp('(?=.*[a-z])');
 const regexUpper = new RegExp('(?=.*[A-Z])');
@@ -92,62 +92,6 @@ const authorizationUrl =
   redirectUri +
   '&scope=' +
   scopes;
-
-
-  // getUrlParameter function parses out the querystring to fetch specific value (e.g., flowId)
-  function getUrlParameter (parameterName) {
-    console.log('getUrlParameter was called');
-    let pageUrl = window.location.href;
-    const pound = '#';
-    const q = '?';
-    const simpleUrl = pageUrl.substring(0, pageUrl.indexOf(pound));
-    console.log('simple url: ' + simpleUrl);
-    console.log('pageUrl: ' + pageUrl);
-    if (pageUrl.includes(pound)) {
-      console.log('pageUrl is not null and has #');
-      pageUrl = pageUrl.substring(pageUrl.indexOf(pound) + 1);
-      console.log('removed base at #:' + pageUrl);
-      const urlVariables = pageUrl.split('&');
-
-      console.log('urlVariables: ' + urlVariables);
-      for (let i = 0; i < urlVariables.length; i++) {
-        const thisParameterName = urlVariables[i].split('=');
-        if (thisParameterName[0] === parameterName) {
-          console.log('parameterName:' + thisParameterName[1]);
-          return thisParameterName[1];
-        }
-        if (thisParameterName[0].includes('access_token')) {
-          console.log('setting at cookie : ' + thisParameterName[1]);
-          Cookies.set('accessToken', thisParameterName[1]);
-        }
-        if (thisParameterName[0].includes('id_token')) {
-          console.log('setting id cookie : ' + thisParameterName[1]);
-          const idToken = thisParameterName[1];
-          Cookies.set('idToken', idToken);
-          setUserinfoCookie();
-        }
-
-        console.log(thisParameterName);
-        console.log('remove AT and IDT from URL');
-        window.location.replace(simpleUrl);
-      }
-    } else if (pageUrl.includes(q)) {
-      console.log("pageUrl is not null");
-      pageUrl = pageUrl.substring(pageUrl.indexOf(q));
-      console.log("removed base at ?:" + pageUrl);
-      let urlVariables = pageUrl.split('&');
-
-      console.log("urlVariables: " + urlVariables);
-      for (let i = 0; i < urlVariables.length; i++) {
-        let thisParameterName = urlVariables[i].split('=');
-        if (thisParameterName[0] == parameterName) return thisParameterName[1];
-      }
-    } else {
-      console.log("URLparams are not present");
-      return "";
-    }
-    console.log("getURLParms done");
-  }
 
 
   function setUserinfoCookie() {  //put the AT and uuid somewhere handy --> bad coding :)
