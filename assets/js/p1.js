@@ -112,7 +112,7 @@ function initiateLogon(){
   //exJax('GET', url, nextStep);
   $.ajax({
     url: url,
-    method: method
+    type: method
   })
   .done(function(data) {
     callback(data);
