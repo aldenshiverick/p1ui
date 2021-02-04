@@ -24,8 +24,8 @@ function updateUser() {
       dataType: 'json',
       contentType: 'application/json',
       data: payload,
-      beforeSend: function(xhr) {
-        xhr.setRequestHeader('Authorization', at);
+      xhrFields: {
+        withCredentials: true
       }
     }).done(function(data) {
       console.log(data);
