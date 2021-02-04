@@ -54,6 +54,7 @@ function initiateLogon() {
         method: method
       })
       .done(function(data) {
+          console.log(`function data` + data);
         setCookies(data);
       })
       .fail(function(data) {
