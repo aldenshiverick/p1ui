@@ -52,7 +52,10 @@ function initiateLogon() {
       //exJax('GET', url, nextStep);
       $.ajax({
         url: url,
-        method: method
+        method: method,
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('Authorization', at);
+          }
       })
       .done(function(data) {
         console.log(data);
