@@ -67,7 +67,8 @@ function initiateLogon() {
 
   function setCookies(data){
       console.log("setcookie Called");
-      let userid = data._embedded.user.id;
+      console.log(data);
+      //let userid = data._embedded.user.id';
       console.log('user is: ' + userid);
     Cookies.set(userid,'userID');
     Cookies.set(data.val(authorizeResponse.access_token),'accessToken');
