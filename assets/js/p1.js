@@ -105,14 +105,14 @@ const authorizationUrl =
 
 
 //----initate logon ---- //
-function initiateLogon(){
+function initiateLogon() {
   console.log('initiateLogon called')
   let url = authorizationUrl;
   let method = 'GET'
   //exJax('GET', url, nextStep);
   $.ajax({
     url: url,
-    type: method
+    method: method
   })
   .done(function(data) {
     callback(data);
