@@ -47,7 +47,7 @@ function initiateLogon() {
   function finishLogon(url){
       //get to redirect to get user info 
       console.log('finishLogon called')
-      let method = 'GET'
+      let method = 'POST'
       console.log('url is: '+ url);
       //exJax('GET', url, nextStep);
       $.ajax({
