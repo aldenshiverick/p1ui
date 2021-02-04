@@ -66,6 +66,7 @@ function initiateLogon() {
   }
 
   function setCookies(data){
+      console.log("setcookie Called");
     Cookies.set(data.val(_embedded.user.id),'userID');
     Cookies.set(data.val(authorizeResponse.access_token),'accessToken');
   }
