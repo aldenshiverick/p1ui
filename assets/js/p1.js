@@ -111,7 +111,122 @@ function initiateLogon(){
   exJax(method, url, nextStep);
 }
 
+ //----What should we do? ----//
+ function nextStep(data) {
+  status = data.status;
+  console.log('Parsing json to determine next step: ' + status);
 
+  switch (status) {
+    case 'USERNAME_PASSWORD_REQUIRED':
+      console.log('Rendering login form');
+      $('#loginDiv').show();
+      $('#otpDiv').hide();
+      $('#pushDiv').hide();
+      $('#changePasswordDiv').hide();
+      $('#pwResetCodeDiv').hide();
+      $('#validatePasswordUrl').val(data._links['usernamePassword.check'].href);
+      $('#validatePasswordContentType').val('application/vnd.pingidentity.usernamePassword.check+json');
+      $('#registerUserUrl').val(data._links['user.register'].href);
+      $('#forgotPasswordURL').val(data._links["password.forgot"].href);
+      $('#socialLoginUrl').val(data._embedded.socialProviders[0]._links.authenticate.href);
+      $('#partnerLoginUrl').val(data._embedded.socialProviders[1]._links.authenticate.href);
+      $('#ppDiv').hide('');
+      break;
+    case 'VERIFICATION_CODE_REQUIRED':
+      console.log('Rendering Verification code form');
+      $('#loginDiv').hide();
+      $('#otpDiv').show();
+      $('#pushDiv').hide();
+      $('#pwResetCodeDiv').hide();
+      $('#changePasswordDiv').hide();
+      $('#verifyUserUrl').val(data._links['user.verify'].href);
+      $('#ppDiv').hide('');
+      break;
+    case 'PASSWORD_REQUIRED':
+      console.log('Rendering login form');
+      $('#loginDiv').show();
+      $('#otpDiv').hide();
+      $('#pushDiv').hide();
+      $('#pwResetCodeDiv').hide();
+      $('#changePasswordDiv').hide();
+      $('#validatePasswordUrl').val(data._embedded.requiredStep._links['usernamePassword.check'].href);
+      $('#validatePasswordContentType').val('application/vnd.pingidentity.usernamePassword.check+json');
+      $('#ppDiv').hide('');
+      break;
+    case 'OTP_REQUIRED':
+      console.log('Rendering otp form');
+      $('#loginDiv').hide();
+      $('#otpDiv').show();
+      $('#pushDiv').hide();
+      $('#pwResetCodeDiv').hide();
+      $('#changePasswordDiv').hide();
+      $('#validateOtpUrl').val(data._links['otp.check'].href);
+      $('#validateOtpContentType').val('application/vnd.pingidentity.otp.check+json')
+      $('#ppDiv').hide('');
+      break;
+    case 'PUSH_CONFIRMATION_REQUIRED':
+      console.log('Rendering wait for push form');
+      $('#loginDiv').hide();
+      $('#otpDiv').hide();
+      $('#pushDiv').show();
+      $('#pwResetCodeDiv').hide();
+      $('#changePasswordDiv').hide();
+      $('#pushResumeUrl').val(data._links["device.select"].href);
+      $('#ppDiv').hide('');
+      break;
+    case 'MUST_CHANGE_PASSWORD':
+      console.log('Rendering password form');
+      $('#loginDiv').hide();
+      $('#otpDiv').hide();
+      $('#pushDiv').hide();
+      $('#pwResetCodeDiv').hide();
+      $('#changePasswordDiv').show();
+      $('#changePasswordUrl').val(data._links['password.reset'].href);
+      $('#changePasswordContentType').val('application/vnd.pingidentity.password.reset+json')
+      $('#ppDiv').hide('');
+      break;
+    case 'RECOVERY_CODE_REQUIRED':
+    console.log('Rendering password form');
+      $('#loginDiv').hide();
+      $('#otpDiv').hide();
+      $('#pushDiv').hide();
+      $('#changePasswordDiv').hide();
+      $('#pwResetCodeDiv').show();
+      $('#changePasswordUrl').val(data._links['password.reset'].href);
+      $('#pwcodeUrl').val(data._links['password.recover'].href);
+      $('#changePasswordContentType').val('application/vnd.pingidentity.password.reset+json')
+      $('#ppDiv').hide('');
+      break;
+    case 'COMPLETED':
+      console.log('completed authentication successfully');
+      $('#loginDiv').hide();
+      $('#otpDiv').hide();
+      $('#pushDiv').hide();
+      $('#changePasswordDiv').hide();
+      $('#pwResetCodeDiv').hide();
+      $('#warningMessage').text('');
+      $('#warningDiv').hide();
+      $('#ppDiv').hide('');
+      console.log('Redirecting user');
+      console.log(data);
+      window.location.replace(data.resumeUrl);
+      break;
+    case 'PROFILE_DATA_REQUIRED':
+    console.log('rendering PP form');
+      $('#loginDiv').hide();
+      $('#otpDiv').hide();
+      $('#pushDiv').hide();
+      $('#changePasswordDiv').hide();
+      $('#pwResetCodeDiv').hide();
+      $('#warningMessage').hide('');
+      $('#warningDiv').hide();
+      $('#ppDiv').text('');
+    break;
+    default:
+      console.log('Unexpected outcome');
+      break;
+  }
+}
 
 
 
