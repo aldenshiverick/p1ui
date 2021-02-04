@@ -77,6 +77,7 @@ function initiateLogon() {
   
    //----What should we do? ----//
    function nextStep(data) {
+       console.log('nextStep data: '+data);
     status = data.status;
     console.log('Parsing json to determine next step: ' + status);
   
