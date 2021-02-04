@@ -46,6 +46,7 @@ function initiateLogon() {
 
   function finishLogon(url){
       //get to redirect to get user info 
+      let json;
       console.log('finishLogon called')
       let method = 'GET'
       //exJax('GET', url, nextStep);
@@ -54,7 +55,8 @@ function initiateLogon() {
         method: method
       })
       .done(function(data) {
-        setCookies(data.object);
+        json = $.parseJSON(data);
+        setCookies(json);
       })
       .fail(function(data) {
         console.log('ajax call failed');
