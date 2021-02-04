@@ -46,16 +46,16 @@ function initiateLogon() {
 
   function finishLogon(url){
       //get to redirect to get user info 
-      let json;
       console.log('finishLogon called')
       let method = 'GET'
+      console.log('url is: '+ url);
       //exJax('GET', url, nextStep);
       $.ajax({
         url: url,
         method: method
       })
       .done(function(data) {
-        json = $.parseJSON(data);
+        let json = $.parseJSON(data);
         setCookies(json);
       })
       .fail(function(data) {
