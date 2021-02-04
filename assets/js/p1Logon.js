@@ -55,8 +55,7 @@ function initiateLogon() {
         method: method
       })
       .done(function(data) {
-        let json = $.parseJSON(data);
-        setCookies(json);
+        console.log(data);
       })
       .fail(function(data) {
         console.log('ajax call failed');
