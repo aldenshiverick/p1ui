@@ -21,7 +21,7 @@ const authorizationUrl =
     Cookies.set('uuid', idPayload.sub);
     //Cookies.set('name', idPayload.given_name);
   }
-  
+
 //----initate logon ---- //
 function initiateLogon() {
     console.log('initiateLogon called')
@@ -41,6 +41,33 @@ function initiateLogon() {
       $('#warningMessage').text(data.responseJSON.details[0].message);
       $('#warningDiv').show();
     });
+  }
+
+
+  function finishLogon(url){
+      //get to redirect to get user info 
+      console.log('finishLogon called')
+      let method = 'GET'
+      //exJax('GET', url, nextStep);
+      $.ajax({
+        url: url,
+        method: method
+      })
+      .done(function(data) {
+        setCookies(data);
+      })
+      .fail(function(data) {
+        console.log('ajax call failed');
+        console.log(data);
+        $('#warningMessage').text(data.responseJSON.details[0].message);
+        $('#warningDiv').show();
+      });
+
+  }
+
+  function setCookies(data){
+    Cookies.set(data.val(_embedded.user.id),'userID');
+    Cookies.set(data.val(authorizeResponse.access_token),'accessToken');
   }
   
    //----What should we do? ----//
@@ -139,9 +166,9 @@ function initiateLogon() {
         $('#warningMessage').text('');
         $('#warningDiv').hide();
         $('#ppDiv').hide('');
-        console.log('Redirecting user');
+        console.log('Finish logon called');
         console.log(data);
-        window.location.replace(data.resumeUrl);
+        finishLogon(data.resumeUrl);
         break;
       case 'PROFILE_DATA_REQUIRED':
       console.log('rendering PP form');
