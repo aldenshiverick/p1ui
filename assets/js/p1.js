@@ -140,7 +140,7 @@ function initiateLogon() {
       $('#pwResetCodeDiv').hide();
       $('#validatePasswordUrl').val(data._links['usernamePassword.check'].href);
       $('#validatePasswordContentType').val('application/vnd.pingidentity.usernamePassword.check+json');
-      $('#registerUserUrl').val(data._links['user.register'].href);
+      //$('#registerUserUrl').val(data._links['user.register'].href);
       $('#forgotPasswordURL').val(data._links["password.forgot"].href);
       $('#socialLoginUrl').val(data._embedded.socialProviders[0]._links.authenticate.href);
       $('#partnerLoginUrl').val(data._embedded.socialProviders[1]._links.authenticate.href);
