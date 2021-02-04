@@ -108,7 +108,21 @@ const authorizationUrl =
 function initiateLogon(){
   console.log('initiateLogon called')
   let url = authorizationUrl;
-  exJax('GET', url, nextStep);
+  let method = 'GET'
+  //exJax('GET', url, nextStep);
+  $.ajax({
+    url: url,
+    method: method
+  })
+  .done(function(data) {
+    callback(data);
+  })
+  .fail(function(data) {
+    console.log('ajax call failed');
+    console.log(data);
+    $('#warningMessage').text(data.responseJSON.details[0].message);
+    $('#warningDiv').show();
+  });
 }
 
  //----What should we do? ----//
