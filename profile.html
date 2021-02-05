@@ -37,19 +37,24 @@
 
 					<!-- Form -->
 					<section>
-						<h3>Form</h3>
+						<h2>Profile Information</h2>
+						<h3>User ID</h3>
 						<form method="post" action="#">
 							<div class="row uniform 50%">
+								<div class="12u$">
+									<input type="number" name="masterUserID" id="masterUserID" value="" placeholder="User ID" />
+								</div>
 								<div class="6u 12u$(xsmall)">
 									<input type="text" name="name" id="firstname" value="" placeholder="First Name" />
 								</div>
 								<div class="6u$ 12u$(xsmall)">
 									<input type="text" name="name" id="lastname" value="" placeholder="Last Name" />
 								</div>
-								<div class="12u$">
+								<div class="6u 12u$(xsmall)">
 									<input type="email" name="email" id="email" value="" placeholder="Email" />
 								</div>
 								<div class="6u 12u$(xsmall)"> 
+									<lable for="birthday">Birthday</lable>
 									<input type="date" name="birthday" id="birthday" value="" />
 								</div>
 								<div class="12u$">
@@ -63,34 +68,26 @@
 										</select>
 									</div>
 								</div>
-								<div class="4u 12u$(xsmall)">
-									<input type="radio" id="priority-low" name="priority" checked>
-									<label for="priority-low">Low Priority</label>
-								</div>
-								<div class="4u 12u$(xsmall)">
-									<input type="radio" id="priority-normal" name="priority">
-									<label for="priority-normal">Normal Priority</label>
-								</div>
-								<div class="4u$ 12u$(xsmall)">
-									<input type="radio" id="priority-high" name="priority">
-									<label for="priority-high">High Priority</label>
-								</div>
-								<div class="6u 12u$(small)">
-									<input type="checkbox" id="copy" name="copy">
-									<label for="copy">Email me a copy of this message</label>
-								</div>
-								<div class="6u$ 12u$(small)">
-									<input type="checkbox" id="human" name="human" checked>
-									<label for="human">I am a human and not a robot</label>
-								</div>
-								<div class="12u$">
-									<textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
-								</div>
-								<div class="12u$">
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="special" /></li>
-										<li><input type="reset" value="Reset" /></li>
-									</ul>
+								<div class="form-group">
+									<input type="street" 
+										   class="form-control" 
+										   id="autocomplete" 
+										   placeholder="Street">
+									
+									<input type="city" 
+										   class="form-control" 
+										   id="inputCity" 
+										   placeholder="City">
+									
+									<input type="state" 
+										   class="form-control" 
+										   id="inputState" 
+										   placeholder="State">
+									
+									<input type="zip" 
+										   class="form-control" 
+										   id="inputZip" 
+										   placeholder="Zip">
 								</div>
 							</div>
 						</form>
