@@ -136,7 +136,7 @@ function updatePassword(){
   let url = apiUrl + "/environments/" + environmentID + "/users/" + user + "/password";
   let payload = JSON.stringify({
     currentPassword: $('#currentPass').val(),
-    newPassword: $('newPass').val()
+    newPassword: $('#newPass').val()
   });
   console.log(payload);
   console.log('ajax (' + url + ')');
