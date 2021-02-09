@@ -19,18 +19,6 @@ function getUserValues() {
       console.log(response);
       setUserValues(response);
     });
-  // document.getElementById("fname").innerHTML = userJson.name.given;
-  // document.getElementById("lname").innerHTML = userJson.name.family;
-  // document.getElementById("email").innerHTML = userJson.email;
-  // document.getElementById("username").innerHTML = userJson.username;
-  // document.getElementById("birthday").innerHTML =  userJson.birthday; 
-  // document.getElementById("gender").innerHTML = userJson.gender;
-  // document.getElementById("relationship").innerHTML = userJson.relationship;
-  // document.getElementById("address").innerHTML = userJson.address.streetAddress;
-  // document.getElementById("city").innerHTML = userJson.address.locality;
-  // document.getElementById("state").innerHTML = userJson.address.region;
-  // document.getElementById("zip").innerHTML = userJson.address.postalCode;
-
 
     console.log("getUserValues completed");
   
@@ -54,6 +42,11 @@ function getUserValues() {
       document.getElementById("email").value = userJson.email;
       //document.getElementById("username").value = userJson.username;
       document.getElementById("Hello").innerHTML = 'Welcome ' + userJson.username;
+      document.getElementById("daysSkied").innerHTML = 'Days Skied this Year: ' + userJson.daysSkied;
+      if(userJson.daysSkied != null){
+        document.getElementById("daysSkied").value = userJson.daysSkied;
+        document.getElementById("daysSkied").innerHTML = userJson.daysSkied;
+      }
       if(userJson.birthday != null){
         document.getElementById("birthday").value =  userJson.birthday;
       }
@@ -95,16 +88,16 @@ function updateUserValues(){
     name: {
       given: $('#fname').val(),
       family: $('#lname').val()
-    }
-    // birthday: 
-    // gender:
-    // relationship:
-    // address: {
-    //   streetAddress, 
-    //   locality, 
-    //   region, 
-    //   postalCode
-    // }
+    },
+    birthday: $('#birthday').val(),
+    gender: $('gender').val(),
+    //relationship: 
+    address: {
+      streetAddress: $('#address').val(),
+      locality: $('city').val(),
+      region: $('state').val(),
+      postalCode: $('zip').val()
+    },
   });
   console.log(payload);
   console.log('ajax (' + url + ')');
