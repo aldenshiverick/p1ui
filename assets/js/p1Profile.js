@@ -53,6 +53,7 @@ function getUserValues() {
       }
       document.getElementById("email").value = userJson.email;
       document.getElementById("username").value = userJson.username;
+      document.getElementById("Hello").value = 'Welcome User ' + userJson.username;
       if(userJson.birthday != null){
         document.getElementById("birthday").value =  userJson.birthday;
       }
@@ -75,7 +76,7 @@ function getUserValues() {
         document.getElementById("zip").value = userJson.address.postalCode;
       }
     } else {
-      document.getElementById("username").value = 'Welcome Guest';
+      document.getElementById("Hello").value = 'Welcome Guest';
     }
     console.log(userJson.username);
   
