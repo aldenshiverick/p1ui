@@ -4,7 +4,7 @@ function getUserValues() {
     let method = "GET";
     let user = Cookies.get("uuid");
     let at = "Bearer " + Cookies.get("accessToken");
-    let url = apiUrl + "/environments/" + environmentId + "/users/" + user;
+    let url = apiUrl + "/environments/" + environmentID + "/users/" + user;
     console.log('ajax (' + url + ')');
     console.log('at =' + at);
     console.log("make ajax call");
