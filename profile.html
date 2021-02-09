@@ -103,8 +103,21 @@
 					<!-- Buttons -->
 					<section>
 						<ul class="actions">
-							<li><a href="#" class="button" onclick="updateUserValues();">Save</a></li> <!--WONDERING WHAT THE USERJSON IS HERE???-->
+							<li><a href="#" class="button" onclick="updateUserValues();">Save</a></li> 
 							<li><a href="#" class="button alt" onclick="getUserValues();">Cancel</a></li>
+						</ul>
+					</section>
+					<section>
+						<div class="row uniform 50%">
+							<div class="6u 12u$(xsmall)">
+								<input type="text" name="currentPass" id="currentPass" value="" />
+							</div>
+							<div class="6u$ 12u$(xsmall)">
+								<input type="text" name="newPass" id="newPass" value="" />
+							</div>
+						</div>
+						<ul class="actions">
+							<li><a href="#" class="button special" onclick="updateUserValues();">Save New Password</a></li> 
 						</ul>
 					</section>
 				</div>
