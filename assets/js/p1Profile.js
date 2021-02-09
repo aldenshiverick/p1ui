@@ -26,10 +26,10 @@ function getUserValues() {
     document.getElementById("birthday").innerHTML =  userJson.birthday; 
     document.getElementById("gender").innerHTML = userJson.gender;
     document.getElementById("relationship").innerHTML = userJson.relationship;
-    document.getElementById("address").innerHTML = userJson.streetAddress;
-    document.getElementById("city").innerHTML = userJson.city;
-    document.getElementById("state").innerHTML = userJson.state;
-    document.getElementById("zip").innerHTML = userJson.zip;
+    document.getElementById("address").innerHTML = userJson.address.streetAddress;
+    document.getElementById("city").innerHTML = userJson.address.locality;
+    document.getElementById("state").innerHTML = userJson.address.region;
+    document.getElementById("zip").innerHTML = userJson.address.postalCode;
 
 
     console.log("getUserValues completed")
