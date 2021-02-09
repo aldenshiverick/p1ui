@@ -72,7 +72,7 @@ function getUserValues() {
       if(userJson.address.region != null){
         document.getElementById("state").value = userJson.address.region;
       }
-      if(userJson.address.postelCode != null){
+      if(userJson.address.postalCode != null){
         document.getElementById("zip").value = userJson.address.postalCode;
       }
     } else {
@@ -84,3 +84,53 @@ function getUserValues() {
   }
 
 
+function updateUserValues(){
+  console.log("updateUserValues was called");
+  let method = "PATCH";
+  let user = Cookies.get("userAPIid");
+  let at = "Bearer " + Cookies.get("accessToken");
+  let url = apiUrl + "/environments/" + environmentID + "/users/" + user;
+  let payload = JSON.stringify({
+    username: $('#username').val(),
+    name: {
+      given: $('#fname').val(),
+      family: $('#lname').val()
+    }
+    // birthday: 
+    // gender:
+    // relationship:
+    // address: {
+    //   streetAddress, 
+    //   locality, 
+    //   region, 
+    //   postalCode
+    // }
+  });
+  console.log(payload);
+  console.log('ajax (' + url + ')');
+  console.log('at =' + at);
+  console.log("make ajax call");
+  $.ajax({
+      async: "true",
+      url: url,
+      method: method,
+      dataType: 'json',
+      contentType: 'application/json',
+      data: payload,
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('Authorization', at);
+      }
+    }).done(function(data) {
+      console.log(data);
+    })
+    .fail(function(data) {
+      console.log('ajax call failed');
+      console.log(data);
+      $('#warningMessage').text(data.responseJSON.details[0].message);
+      $('#warningDiv').show();
+    });
+  //add brief delay so info is populated
+  setTimeout(function() {
+    getUserValues();
+  }, 1000);
+}
