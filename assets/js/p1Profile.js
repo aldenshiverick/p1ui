@@ -42,7 +42,6 @@ function getUserValues() {
       document.getElementById("email").value = userJson.email;
       //document.getElementById("username").value = userJson.username;
       document.getElementById("Hello").innerHTML = 'Welcome ' + userJson.username;
-      document.getElementById("daysSkied").innerHTML = 'Days Skied this Year: ' + userJson.daysSkied;
       if(userJson.daysSkied != null){
         document.getElementById("daysSkied").value = userJson.daysSkied;
         document.getElementById("daysSkied").innerHTML = userJson.daysSkied;
