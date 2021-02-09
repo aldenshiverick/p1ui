@@ -53,7 +53,7 @@ function getUserValues() {
       }
       document.getElementById("email").value = userJson.email;
       //document.getElementById("username").value = userJson.username;
-      document.getElementById("Hello").innerHTML = 'Welcome User ' + userJson.username;
+      document.getElementById("Hello").innerHTML = 'Welcome ' + userJson.username;
       if(userJson.birthday != null){
         document.getElementById("birthday").value =  userJson.birthday;
       }
