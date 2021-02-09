@@ -19,20 +19,20 @@ function getUserValues() {
       console.log(response);
       setUserValues(response);
     });
-    document.getElementById("fname").innerHTML = userJson.name.given;
-    document.getElementById("lname").innerHTML = userJson.name.family;
-    document.getElementById("email").innerHTML = userJson.email;
-    document.getElementById("username").innerHTML = userJson.username;
-    document.getElementById("birthday").innerHTML =  userJson.birthday; 
-    document.getElementById("gender").innerHTML = userJson.gender;
-    document.getElementById("relationship").innerHTML = userJson.relationship;
-    document.getElementById("address").innerHTML = userJson.address.streetAddress;
-    document.getElementById("city").innerHTML = userJson.address.locality;
-    document.getElementById("state").innerHTML = userJson.address.region;
-    document.getElementById("zip").innerHTML = userJson.address.postalCode;
+  // document.getElementById("fname").innerHTML = userJson.name.given;
+  // document.getElementById("lname").innerHTML = userJson.name.family;
+  // document.getElementById("email").innerHTML = userJson.email;
+  // document.getElementById("username").innerHTML = userJson.username;
+  // document.getElementById("birthday").innerHTML =  userJson.birthday; 
+  // document.getElementById("gender").innerHTML = userJson.gender;
+  // document.getElementById("relationship").innerHTML = userJson.relationship;
+  // document.getElementById("address").innerHTML = userJson.address.streetAddress;
+  // document.getElementById("city").innerHTML = userJson.address.locality;
+  // document.getElementById("state").innerHTML = userJson.address.region;
+  // document.getElementById("zip").innerHTML = userJson.address.postalCode;
 
 
-    console.log("getUserValues completed")
+    console.log("getUserValues completed");
   
   }
   
@@ -77,6 +77,7 @@ function getUserValues() {
     } else {
       document.getElementById("username").value = 'Welcome Guest';
     }
+    console.log(userJson.username);
   
     //let idPayload = parseJwt(idToken);
   }
