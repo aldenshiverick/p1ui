@@ -11,7 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
-	<body>
+	<body onload="getUserValues();">
 
 		<!-- Header -->
 			<header id="header">
@@ -29,14 +29,14 @@
 
 		<!-- Main -->
 			<section id="main" class="wrapper">
-				<div class="container" onload="getUserValues();">
+				<div class="container">
 					<header class="major special">
 						<h2>Profile</h2>
 						<p>Self-Service User Profile Management</p>
 					</header>
 
 					<!-- Form -->
-					<section onload="setUserValues();">
+					<section>
 						<h2>Profile Information</h2>
 						<h3>User ID</h3>
 						<form method="post" action="#">
@@ -103,7 +103,7 @@
 					<section>
 						<ul class="actions">
 							<li><a href="#" class="button special">Edit</a></li>
-							<li><a href="#" class="button">Save</a></li>
+							<li><a href="#" class="button" onclick="setUserValues(userJson);">Save</a></li> <!--WONDERING WHAT THE USERJSON IS HERE???-->
 							<li><a href="#" class="button alt">Cancel</a></li>
 						</ul>
 					</section>
@@ -132,6 +132,7 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/p1.js"></script>
+			<script src="assets/js/p1Profile.js"></script>
 
 	</body>
 </html>
