@@ -43,8 +43,8 @@ function getUserValues() {
       //document.getElementById("username").value = userJson.username;
       document.getElementById("Hello").innerHTML = 'Welcome ' + userJson.username;
       if(userJson.daysSkied != null){
-        document.getElementById("daysSkied").value = userJson.daysSkied;
-        document.getElementById("daysSkied").innerHTML = userJson.daysSkied;
+        //document.getElementById("daysSkied").value = userJson.daysSkied;
+        document.getElementById("daysSkied").innerHTML = 'Days Skied this Year ' + userJson.daysSkied;
       }
       if(userJson.birthday != null){
         document.getElementById("birthday").value =  userJson.birthday;
