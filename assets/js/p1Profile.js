@@ -53,16 +53,32 @@ function getUserValues() {
       }
       document.getElementById("email").value = userJson.email;
       document.getElementById("username").value = userJson.username;
-      document.getElementById("birthday").value =  userJson.birthday; //need to understand which attributes we are saving
-      document.getElementById("gender").value = userJson.gender;
-      document.getElementById("relationship").value = userJson.relationship;
-      document.getElementById("address").value = userJson.address.streetAddress;
-      document.getElementById("city").value = userJson.address.locality;
-      document.getElementById("state").value = userJson.address.region;
-      document.getElementById("zip").value = userJson.address.postalCode;
+      if(userJson.birthday != null){
+        document.getElementById("birthday").value =  userJson.birthday;
+      }
+      if(userJson.gender != null){
+        document.getElementById("gender").value = userJson.gender;
+      }
+      if(userJson.relationship != null){
+        document.getElementById("relationship").value = userJson.relationship;
+      }
+      if(userJson.address.streetAddress != null){
+        document.getElementById("address").value = userJson.address.streetAddress;
+      }
+      if(userJson.address.locality != null){
+        document.getElementById("city").value = userJson.address.locality;
+      }
+      if(userJson.address.region != null){
+        document.getElementById("state").value = userJson.address.region;
+      }
+      if(userJson.address.postelCode != null){
+        document.getElementById("zip").value = userJson.address.postalCode;
+      }
     } else {
       document.getElementById("username").value = 'Welcome Guest';
     }
   
     //let idPayload = parseJwt(idToken);
   }
+
+
