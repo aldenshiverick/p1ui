@@ -36,15 +36,21 @@ function getUserValues() {
         if(userJson.name.given){
           console.log("givenname if was passes")
           document.getElementById("user").value = 'Hello ' + userJson.name.given + "!";
-          document.getElementById("fname").value = userJson.name.given;
+          document.getElementById("fname").innerHTML = userJson.name.given;
         }
         if(userJson.name.family){
-        document.getElementById("lname").value = userJson.name.family;
+        document.getElementById("lname").innerHTML = userJson.name.family;
         }
       }
-      document.getElementById("email").value = userJson.email;
-      document.getElementById("username").value = userJson.username;
-      //document.getElementById("address").innerHTML=streetAddress;
+      document.getElementById("email").innerHTML = "userJson.email";
+      document.getElementById("username").innerHTML = userJson.username;
+      document.getElementById("birthday").innerHTML =  userJson.birthday; //not sure if this is correct!!!!
+      document.getElementById("gender").innerHTML = userJson.gender;
+      document.getElementById("relationship").innerHTML = userJson.relationship;
+      document.getElementById("address").innerHTML = userJson.streetAddress;
+      document.getElementById("city").innerHTML = userJson.city;
+      document.getElementById("state").innerHTML = userJson.state;
+      document.getElementById("zip").innerHTML = userJson.zip;
     } else {
       document.getElementById("username").innerHTML = 'Welcome Guest';
     }
