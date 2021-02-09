@@ -2,7 +2,7 @@
 function getUserValues() {
     console.log('getUserValues called');
     let method = "GET";
-    let user = Cookies.get("uuid");
+    let user = Cookies.get("userAPIid");
     let at = "Bearer " + Cookies.get("accessToken");
     let url = apiUrl + "/environments/" + environmentID + "/users/" + user;
     console.log('ajax (' + url + ')');
