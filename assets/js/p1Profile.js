@@ -1,7 +1,4 @@
 
-
-
-
 function getUserValues() {
     console.log('getUserValues called');
     let method = "GET";
@@ -42,7 +39,7 @@ function getUserValues() {
   function setUserValues(userJson) {
     console.log("setuserValues was called");
     console.log(userJson);
-    let uuid = Cookies.get('uuid');
+    let uuid = Cookies.get("uuid");
     //let streetAddress = userJson.address.streetAddress + " " + userJson.address.locality + ", " + userJson.address.region + " " + userJson.address.postalCode;
     if (Cookies.get("accessToken")) {
       if(userJson.name){

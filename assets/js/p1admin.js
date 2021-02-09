@@ -39,3 +39,4 @@ function adminGetUser(){
     } else {
       document.getElementById("username").innerHTML = 'Welcome Guest';
     }
+  }
