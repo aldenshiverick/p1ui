@@ -16,6 +16,12 @@ const appClientID = 'dd2157ed-6f2b-4de9-81e3-11feb2b19302';
 const authUrl = 'https://auth.pingone.com';
 const apiUrl = 'https://api.pingone.com/v1';
 
+const agentClientID ='9d6751a0-cbb9-4e3f-8efb-c93d2733dc9d';
+//const agentWorkerApp ='';
+//const agentWorkerSecret = '';
+
+
+
 const flowId = '';
 
 const regexLower = new RegExp('(?=.*[a-z])');
