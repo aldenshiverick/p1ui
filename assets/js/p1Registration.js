@@ -120,7 +120,7 @@ function nextStep(data) {
     case 'COMPLETED':
       console.log('Registration was a SUCCESS!');
       console.log(data._links);
-      let url = data._links["resumeURL"].href;
+      let url = data.resumeUrl;
       console.log('resume url is :' + url);
       finishAuth(url);
       
