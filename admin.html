@@ -46,7 +46,7 @@
 
                             <div class="6u 12u$(xsmall)">
                                 <input type="text" name="email" id="email" value="" placeholder="Email" />
-                                <li><span class="button special disabled">Special</span></li>
+                                <span class="button special" onclick="adminGetUser(document.getElementById('email').value, 'email')">Special</span>
                             </div>
                         </div>
                     </form>
@@ -60,7 +60,8 @@
                                 <div class="6u 12u$(xsmall)">
 									<section>
 										<p name="username" id="usernameFill" value="">
-											<!-- <b>Username:</b>  -->
+											<!-- |
+												<b>Username:</b>  -->
 										</p>
 										<p name="name" id="fnameFill" value="">
 											<b>First Name:</b>
