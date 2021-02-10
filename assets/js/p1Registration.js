@@ -121,9 +121,9 @@ function nextStep(data) {
       console.log('Registration was a SUCCESS!');
       let url = data.resumeUrl;
       let accessToken = data.accessToken;
-      console.log('access Token: ' + accessToken);
       console.log('resume url is :' + url);
       finishAuth(url);
+      break;
     default:
       console.log('something went wrong');
       break;
@@ -136,7 +136,7 @@ function getFlowStatus(){
 function finishAuth(url){
   console.log('finishAuth called');
   let contentType = 'application/json';
-  exJax('GET', url , nextStep, contentType);
+  exJax('GET', url , setCookies, contentType);
   //location.href = 'https://morgapp.ping-eng.com/p1ui/profile.html';
 }
 
