@@ -23,7 +23,6 @@ function registerUser() {
   });
   console.log('url:' + url);
   console.log('payload:' + payload);
-  console.log('registered user: ' + username);
   exJax("POST", url, nextStep, contentType, payload);
 }
 
