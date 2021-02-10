@@ -137,7 +137,7 @@ function getFlowStatus(){
 function finishAuth(url){
   console.log('finishAuth called');
   let contentType = 'application/json';
-  exJax('POST', url , setCookies, contentType);
+  exJax('GET', url , setCookies, contentType);
   location.href = 'https://morgapp.ping-eng.com/p1ui/profile.html';
 }
 
