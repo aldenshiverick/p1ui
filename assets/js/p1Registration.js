@@ -63,8 +63,8 @@ function setCookies(data){
   console.log("setcookie Called");
   console.log(data.access_token);
   let at = data.access_token;
-  console.log('user is: ' + at);
-Cookies.set('at', at, { sameSite: 'strict' });
+  console.log('at is: ' + at);
+  Cookies.set('at', at, { sameSite: 'strict' });
 }
 
 function checkPass()
