@@ -146,6 +146,61 @@
 			<script src="assets/js/p1helper.js"></script>
 			<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 			<script src="assets/js/p1Registration.js"></script>
+			
+
+			<script>
+				// some housekeeping variables
+				
+								$('#changePassword').on('input', function (e) {
+								let thisPassword = $('#changePassword').val();
+				
+								if (regexLower.test(thisPassword)) {
+								$('#lowercase').removeClass('text-primary');
+								} else {
+									$('#lowercase').addClass('text-primary');
+								}
+								if (regexUpper.test(thisPassword)) {
+									$('#uppercase').removeClass('text-primary');
+								} else {
+									$('#uppercase').addClass('text-primary');
+								}
+				
+								if (regexNumeric.test(thisPassword)) {
+									$('#numeric').removeClass('text-primary');
+								} else {
+									$('#numeric').addClass('text-primary');
+								}
+				
+								if (regexSpecial.test(thisPassword)) {
+									$('#special').removeClass('text-primary');
+								} else {
+									$('#special').addClass('text-primary');
+								}
+				
+								if (regexLength.test(thisPassword)) {
+									$('#length').removeClass('text-primary');
+								} else {
+									$('#length').addClass('text-primary');
+								}
+							});
+							// begin process
+							$(document).ready(function () {
+								console.log("Page ready function");
+				
+								// do I already have an AT cookie?
+				
+								if (Cookies.get('at')) {
+									// yes, an AT already exisits
+				
+									console.log('at (' + Cookies.get('at') + ')');
+				
+				
+								} else {
+										getAccessToken();
+									}
+				
+							})
+					</script>
 
 	</body>
 </html>
