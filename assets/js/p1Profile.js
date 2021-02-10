@@ -12,11 +12,8 @@ function getUserValues() {
       async: "true",
       url: url,
       method: method,
-      // beforeSend: function(xhr) {
-      //   xhr.setRequestHeader('Authorization', at);
-      // }
-      xhrFields: {
-        withCredentials: true
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('Authorization', at);
       }
     }).done(function(response) {
       console.log(response);
@@ -144,7 +141,6 @@ function updatePassword(){
   console.log(payload);
   console.log('ajax (' + url + ')');
   console.log('at =' + at);
-  console.log('user = ' + user);
   console.log("make ajax call");
   $.ajax({
       async: "true",

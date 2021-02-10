@@ -3,7 +3,7 @@ function registerUser() {
   let method = "POST";
   //let at = Cookies.get('at');
   let flow = Cookies.get('flowID');
-  //let contentType = 'application/vnd.pingidentity.user.register+json';
+  let contentType = 'application/vnd.pingidentity.user.register+json';
   let url = authUrl + '/' + environmentID + '/flows/' + flow;
   let payload = JSON.stringify({
     username: $('#email').val(),
@@ -25,52 +25,37 @@ function registerUser() {
   });
   console.log('url:' + url);
   console.log('payload:' + payload);
-  //exJax("POST", url, nextStep, contentType, payload);
-  $.ajax({
-    url: url,
-    method: 'POST',
-    dataType: 'json',
-    contentType: 'application/vnd.pingidentity.user.register+json',
-    data: payload,
-    // beforeSend: function(xhr) {
-    //   xhr.setRequestHeader('Authorization', at);
-    // }
-    xhrFields: {
-      withCredentials: true
-    }
-  }).done(function(response) {
-    console.log(response);
-  });
+  exJax("POST", url, nextStep, contentType, payload);
 }
 
-function getAccessToken() {
-  var settings = {
-    "url": "https://auth.pingone.com/ca3ad373-df71-4eb5-a3b5-76439336e1d6/as/token",
-    "method": "POST",
-    "timeout": 0,
-    "headers": {
-      "Content-Type": "application/x-www-form-urlencoded"
-    },
-    "data": {
-      "grant_type": "client_credentials",
-      "client_id": "cedd8115-38d5-49f6-8bd8-043505fd83c6",
-      "client_secret": "EAarQcJAyAsS2QZN46MSrQD_nUHUK9~b2liHYlULE3jKne1EPIFwGG3Jayo6upBQ"
-    }
-  };
+// function getAccessToken() {
+//   var settings = {
+//     "url": "https://auth.pingone.com/ca3ad373-df71-4eb5-a3b5-76439336e1d6/as/token",
+//     "method": "POST",
+//     "timeout": 0,
+//     "headers": {
+//       "Content-Type": "application/x-www-form-urlencoded"
+//     },
+//     "data": {
+//       "grant_type": "client_credentials",
+//       "client_id": "cedd8115-38d5-49f6-8bd8-043505fd83c6",
+//       "client_secret": "EAarQcJAyAsS2QZN46MSrQD_nUHUK9~b2liHYlULE3jKne1EPIFwGG3Jayo6upBQ"
+//     }
+//   };
   
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-    setCookies(response);
-  });
-}
+//   $.ajax(settings).done(function (response) {
+//     console.log(response);
+//     setCookies(response);
+//   });
+// }
 
-function setCookies(data){
-  console.log("setcookie Called");
-  console.log(data.access_token);
-  let at = data.access_token;
-  console.log('at is: ' + at);
-  Cookies.set('at', at, { sameSite: 'strict' });
-}
+// function setCookies(data){
+//   console.log("setcookie Called");
+//   console.log(data.access_token);
+//   let at = data.access_token;
+//   console.log('at is: ' + at);
+//   Cookies.set('at', at, { sameSite: 'strict' });
+// }
 
 function checkPass()
 {
@@ -101,6 +86,23 @@ function checkPass()
     }
 }  
 
+function validateUser(){
+  console.log('verifyUser called');
+  let otp = $('#user_otp').val();
+  let payload = JSON.stringify({
+    verificationCode: $('#otp_login').val()
+  });
+  //let url = $('#validateOtpUrl').val();
+  //let url = $('verifyUserUrl').val();
+  let url = authUrl + '/'+ environmentId + '/flows/' + flowId;
+  let contenttype ='application/vnd.pingidentity.user.verify+json';
+  console.log('url :' + url);
+  console.log('verificationCode: ' + otp);
+  console.log('content' + contenttype);
+
+  exJax('POST', url, nextStep, contenttype, payload);
+}
+
 function nextStep(data) {
   status = data.status;
   console.log('Parsing json to determine next step: ' + status);
@@ -108,8 +110,10 @@ function nextStep(data) {
   console.log('FlowId is: ' + flowId);
 
   switch (status) {
-    case 'USERNAME_PASSWORD_REQUIRED':
-      console.log('REsponse');
+    case 'VERIFICATION_CODE_REQUIRED':
+      console.log('Verify email');
+      $('#reg').hide();
+      $('#otpDiv').hide();
       
       break;
     default:
