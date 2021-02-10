@@ -120,6 +120,8 @@ function nextStep(data) {
     case 'COMPLETED':
       console.log('Registration was a SUCCESS!');
       let url = data.resumeUrl;
+      let accessToken = data.accessToken;
+      console.log('access Token: ' + accessToken);
       console.log('resume url is :' + url);
       finishAuth(url);
     default:
@@ -135,7 +137,7 @@ function finishAuth(url){
   console.log('finishAuth called');
   let contentType = 'application/json';
   exJax('GET', url , nextStep, contentType);
-  location.href = 'https://morgapp.ping-eng.com/p1ui/profile.html';
+  //location.href = 'https://morgapp.ping-eng.com/p1ui/profile.html';
 }
 
 
