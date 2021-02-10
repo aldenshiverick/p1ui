@@ -61,7 +61,7 @@ function getAccessToken() {
 
 function setCookies(data){
   console.log("setcookie Called");
-  console.log(data);
+  console.log(data.accessToken);
   let at = data.accessToken;
   console.log('user is: ' + at);
 Cookies.set('at', accessToken, { sameSite: 'strict' });
