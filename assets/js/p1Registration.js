@@ -43,10 +43,11 @@ function getAccessToken() {
   let method = 'POST'
   let url = authUrl + "/" + environmentID + "/as/token";
   console.log(url);
-  let tok = workerClientID + ':' + workerClientSecret;
-  let hash = btoa(tok);
-  let auth = "Basic " + hash;
+  //let tok = workerClientID + ':' + workerClientSecret;
+  //let hash = btoa(tok);
+  //let auth = "Basic " + hash;
   //let contentType = "application/x-www-form-urlencoded";
+  let auth = 'Basic Y2VkZDgxMTUtMzhkNS00OWY2LThiZDgtMDQzNTA1ZmQ4M2M2OkVBYXJRY0pBeUFzUzJRWk40Nk1TclFEX25VSFVLOX5iMmxpSFlsVUxFM2pLbmUxRVBJRndHRzNKYXlvNnVwQlE='
   console.log(auth);
   $.ajax({
     url: url,
