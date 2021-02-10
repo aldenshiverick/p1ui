@@ -33,7 +33,6 @@ function initiateLogon() {
       method: method
     })
     .done(function(data) {
-      console.log('data is: ' + data);
       nextStep(data);
     })
     .fail(function(data) {
@@ -85,6 +84,7 @@ function initiateLogon() {
    function nextStep(data) {
     status = data.status;
     console.log('Parsing json to determine next step: ' + status);
+    console.log('Json is: ' + data);
   
     switch (status) {
       case 'USERNAME_PASSWORD_REQUIRED':
