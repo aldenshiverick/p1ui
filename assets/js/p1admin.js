@@ -28,7 +28,7 @@ function adminGetUser(type){
       console.log('response '+response);
       adminSetUserValues(response);
     });
-    console.log("adminGetUser completed")
+    console.log("adminGetUser completed");
   }
 
 
