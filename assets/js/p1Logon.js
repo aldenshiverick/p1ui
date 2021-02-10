@@ -270,6 +270,10 @@ function initiateLogon() {
   
   }
   
+  //-------Redirect to Registration------//
+  function redirect_toReg(){
+    location.href = 'https://morganapps.ping-eng.com/p1ui/register.html?' + 'environmentId=' + environmentId + '&flowId=' + flowId;
+  }
   
   //-------MFA Calls -------//
   // validate one time passcode function
