@@ -275,7 +275,7 @@ function initiateLogon() {
   //-------Redirect to Registration------//
   function redirect_toReg(){
 
-    location.href = 'https://morgapp.ping-eng.com/p1ui/register.html';
+    location.href = 'https://morgapp.ping-eng.com/p1ui/registration.html';
   }
   
   //-------MFA Calls -------//
