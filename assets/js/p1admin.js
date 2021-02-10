@@ -4,10 +4,10 @@ function adminGetUser(type){
     let method = "GET";
     // let user = document.getElementById('PassID').value;
     let url;
-    console.log(user);
     let at = "Bearer " + Cookies.get("accessToken");
     if(type == "email"){
-      let value = document.getElementById('email');
+      console.log("we made it in the if statement");
+      let value = document.getElementById('email').value;
       url = apiUrl + "/environments/" + environmentID + "/users/?filter=email%20eq%20%22" + value + "%22";
     }
     // if(type == "passID"){
