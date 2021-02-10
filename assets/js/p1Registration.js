@@ -55,6 +55,7 @@ function getAccessToken() {
   
   $.ajax(settings).done(function (response) {
     console.log(response);
+    setCookies(response);
   });
 }
 
