@@ -79,7 +79,7 @@ function initiateLogon() {
       let accessToken = data.authorizeResponse.access_token
     Cookies.set('userAPIid', userAPIid,{ sameSite: 'strict' });
     Cookies.set('accessToken', accessToken, { sameSite: 'strict' });
-    window.location.replace("https://morgapp.ping-eng.com/p1ui/");
+    window.location.replace("https://morgapp.ping-eng.com/p1ui/admin.html");
   }
   
    //----What should we do? ----//

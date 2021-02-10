@@ -193,10 +193,9 @@
 				$(document).ready(function () {
 					console.log("Page ready function");
 		
-					if (Cookies.get('accessToken') && Cookies.get('idToken')) {
+					if (Cookies.get('accessToken')) {
 					// yes, user already has a session
-		
-					console.log('User has session : id_token (' + Cookies.get('idToken') + ')');
+	
 					console.log('accessToken (' + Cookies.get('accessToken') + ')');
 		
 		
