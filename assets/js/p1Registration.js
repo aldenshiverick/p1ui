@@ -3,9 +3,9 @@ function registerUser() {
   let method = "POST";
   let contentType = 'application/vnd.pingidentity.user.register+json';
   let url = apiUrl + "/environments/" + environmentID + "/users";
-  // let url = $('#registerUserUrl').val();
+  //let url = $('#registerUserUrl').val();
   let payload = JSON.stringify({
-    username: $('#username').val(),
+    username: $('#email').val(),
     name: {
       given: $('#fname').val(),
       family: $('#lname').val()
@@ -19,6 +19,7 @@ function registerUser() {
       region: $('state').val(),
       postalCode: $('zip').val()
     },
+    password: $('#user_pass').val()
   });
   console.log('url:' + url);
   console.log('payload:' + payload);
