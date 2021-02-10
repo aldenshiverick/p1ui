@@ -2,7 +2,7 @@ function registerUser() {
   console.log("registerUser was called");
   let method = "POST";
   let at = Cookies.get('at');
-  let contentType = 'application/vnd.pingidentity.user.register+json';
+  //let contentType = 'application/vnd.pingidentity.user.register+json';
   let url = authUrl + '/' + environmentID + '/flows/' + flowId;
   let payload = JSON.stringify({
     username: $('#email').val(),
@@ -28,7 +28,7 @@ function registerUser() {
     url: url,
     method: 'POST',
     dataType: 'json',
-    contentType: contenttype,
+    contentType: 'application/vnd.pingidentity.user.register+json',
     data: payload,
     beforeSend: function(xhr) {
       xhr.setRequestHeader('Authorization', at);
