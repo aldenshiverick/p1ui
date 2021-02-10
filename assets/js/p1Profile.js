@@ -12,8 +12,11 @@ function getUserValues() {
       async: "true",
       url: url,
       method: method,
-      beforeSend: function(xhr) {
-        xhr.setRequestHeader('Authorization', at);
+      // beforeSend: function(xhr) {
+      //   xhr.setRequestHeader('Authorization', at);
+      // }
+      xhrFields: {
+        withCredentials: true
       }
     }).done(function(response) {
       console.log(response);
