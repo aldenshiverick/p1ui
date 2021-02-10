@@ -30,8 +30,11 @@ function registerUser() {
     dataType: 'json',
     contentType: 'application/vnd.pingidentity.user.register+json',
     data: payload,
-    beforeSend: function(xhr) {
-      xhr.setRequestHeader('Authorization', at);
+    // beforeSend: function(xhr) {
+    //   xhr.setRequestHeader('Authorization', at);
+    // }
+    xhrFields: {
+      withCredentials: true
     }
   }).done(function(response) {
     console.log(response);
