@@ -118,12 +118,20 @@ function nextStep(data) {
       
       break;
     case 'COMPLETED':
-      console.log('SUCCESS!');
-      location.href = 'https://morgapp.ping-eng.com/p1ui/login.html';
+      console.log('Registration was a SUCCESS!');
+      let url = data._links["resumeUrl"].href;
+      console.log('resume url is :' + url);
+      finishAuth(url);
+      
 
     default:
       console.log('something went wrong');
       break;
   }
 }
-  
+
+function finishAuth(url){
+  console.log('finishAuth called');
+  exJax('POST', url);
+  location.href = 'https://morgapp.ping-eng.com/p1ui/profile.html';
+}
