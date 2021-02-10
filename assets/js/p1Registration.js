@@ -108,6 +108,7 @@ function nextStep(data) {
   console.log('Parsing json to determine next step: ' + status);
   flowId= data.id;
   console.log('FlowId is: ' + flowId);
+  console.log('FlowId is: ' + data);
 
   switch (status) {
     case 'VERIFICATION_CODE_REQUIRED':
@@ -116,6 +117,10 @@ function nextStep(data) {
       $('#otpDiv').show();
       
       break;
+    case 'COMPLETED':
+      console.log('SUCCESS!');
+      location.href = 'https://morgapp.ping-eng.com/p1ui/login.html';
+
     default:
       console.log('something went wrong');
       break;
