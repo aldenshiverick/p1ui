@@ -2,7 +2,9 @@ function registerUser() {
   console.log("registerUser was called");
   let method = "POST";
   let contentType = 'application/vnd.pingidentity.user.register+json';
-  let url = apiUrl + "/environments/" + environmentID + "/users";
+  //let url = apiUrl + "/environments/" + environmentID + "/users";
+  //{{authPath}}/{{envID}}/flows/{{flowID}}
+  
   //let url = $('#registerUserUrl').val();
   let payload = JSON.stringify({
     username: $('#email').val(),
@@ -66,3 +68,21 @@ function checkPass()
         message.innerHTML             = '<img src="/wp-content/uploads/2019/04/publish_x.png" alt="Passwords Do Not Match!">';
     }
 }  
+
+function nextStep(data) {
+  status = data.status;
+  console.log('Parsing json to determine next step: ' + status);
+  flowId= data.id;
+  console.log('FlowId is: ' + flowId);
+
+  switch (status) {
+    case 'USERNAME_PASSWORD_REQUIRED':
+      console.log('REsponse');
+      
+      break;
+    default:
+      console.log('something went wrong');
+      break;
+  }
+}
+  
