@@ -52,11 +52,10 @@ function getAccessToken() {
     client_id: "cedd8115-38d5-49f6-8bd8-043505fd83c6",
     client_secret: "EAarQcJAyAsS2QZN46MSrQD_nUHUK9~b2liHYlULE3jKne1EPIFwGG3Jayo6upBQ"
   });
-  //console.log(auth);
+  console.log(payload);
   $.ajax({
     url: url,
     method: method,
-    dataType: 'json',
     contentType: 'application/x-www-form-urlencoded',
     data: payload,
     xhrFields: {
