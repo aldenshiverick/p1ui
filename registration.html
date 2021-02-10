@@ -105,10 +105,22 @@
 									<span id="confirm-message2" class="confirm-message"></span>
 									
 								</div>
-								
+
 								<ul class="actions">
 									<li><a href="#" class="button" onclick="registerUser();">Create Account</a></li> 
 								</ul>
+							</div>
+							<div id ="otpDiv" class="row uniform 50%">
+								<h2> Verify Account</h2>
+								<h3> An Email was sent with a verification code</h3>
+								<div class="6u 12u$(xsmall)">
+									<input type="text" name="user_pass" id="user_otp" value="OTP" />
+								</div>
+								<span id="confirm-message2" class="confirm-message"></span>
+								<ul class="actions">
+									<li><a href="#" class="button" onclick="validateUser();">Validate</a></li> 
+								</ul>
+								
 							</div>
 						</form>
 					</section>
@@ -195,7 +207,7 @@
 				
 				
 								} else {
-										getAccessToken();
+										//getAccessToken();
 									}
 				
 							})

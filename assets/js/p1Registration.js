@@ -113,7 +113,7 @@ function nextStep(data) {
     case 'VERIFICATION_CODE_REQUIRED':
       console.log('Verify email');
       $('#reg').hide();
-      $('#otpDiv').hide();
+      $('#otpDiv').show();
       
       break;
     default:
