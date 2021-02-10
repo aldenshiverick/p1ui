@@ -110,7 +110,7 @@
 									<li><a href="#" class="button" onclick="registerUser();">Create Account</a></li> 
 								</ul>
 							</div>
-							<div id ="otpDiv" class="row uniform 50%">
+							<div id ="otpDiv" view="hide" class="row uniform 50%">
 								<h2> Verify Account</h2>
 								<h3> An Email was sent with a verification code</h3>
 								<div class="6u 12u$(xsmall)">
@@ -197,18 +197,9 @@
 							// begin process
 							$(document).ready(function () {
 								console.log("Page ready function");
-				
-								// do I already have an AT cookie?
-				
-								if (Cookies.get('at')) {
-									// yes, an AT already exisits
-				
-									console.log('at (' + Cookies.get('at') + ')');
-				
-				
-								} else {
-										//getAccessToken();
-									}
+								console.log("hide otp div");
+								$('#otpDiv').hide();
+
 				
 							})
 					</script>
