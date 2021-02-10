@@ -7,19 +7,20 @@ function registerUser() {
   let url = authUrl + '/' + environmentID + '/flows/' + flow;
   let payload = JSON.stringify({
     username: $('#email').val(),
-    // name: {
-    //   given: $('#fname').val(),
-    //   family: $('#lname').val()
-    // },
-    // birthday: $('#birthday').val(),
-    // gender: $('gender').val(),
-    // //relationship: 
-    // address: {
-    //   streetAddress: $('#address').val(),
-    //   locality: $('city').val(),
-    //   region: $('state').val(),
-    //   postalCode: $('zip').val()
-    // },
+    email: $('#email').val(),
+    name: {
+      given: $('#fname').val(),
+      family: $('#lname').val()
+    },
+    birthday: $('#birthday').val(),
+    gender: $('gender').val(),
+    //relationship: 
+    address: {
+      streetAddress: $('#address').val(),
+      locality: $('city').val(),
+      region: $('state').val(),
+      postalCode: $('zip').val()
+    },
     password: $('#user_pass').val()
   });
   console.log('url:' + url);
