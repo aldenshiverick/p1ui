@@ -94,7 +94,7 @@ function validateUser(){
   });
   //let url = $('#validateOtpUrl').val();
   //let url = $('verifyUserUrl').val();
-  let url = authUrl + '/'+ environmentId + '/flows/' + flowId;
+  let url = authUrl + '/'+ environmentID + '/flows/' + flowId;
   let contenttype ='application/vnd.pingidentity.user.verify+json';
   console.log('url :' + url);
   console.log('verificationCode: ' + otp);
