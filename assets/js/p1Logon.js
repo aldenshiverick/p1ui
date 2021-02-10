@@ -84,7 +84,9 @@ function initiateLogon() {
    function nextStep(data) {
     status = data.status;
     console.log('Parsing json to determine next step: ' + status);
-    console.log('Json is: ' + data);
+    console.log('Id is :' + data.id);
+    flowId=data.id;
+    console.log('FlowId is: ' + flowId);
   
     switch (status) {
       case 'USERNAME_PASSWORD_REQUIRED':
@@ -98,8 +100,6 @@ function initiateLogon() {
         $('#registerUserUrl').val(data._links['registration.external'].href);
         $('#validatePasswordContentType').val('application/vnd.pingidentity.usernamePassword.check+json');
         $('#forgotPasswordURL').val(data._links["password.forgot"].href);
-        flowId=data.id;
-        console.log('FlowId is: ' + flowId);
         //$('#socialLoginUrl').val(data._embedded.socialProviders[0]._links.authenticate.href);
         //$('#partnerLoginUrl').val(data._embedded.socialProviders[1]._links.authenticate.href);
         $('#ppDiv').hide('');
