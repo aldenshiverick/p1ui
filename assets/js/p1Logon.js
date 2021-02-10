@@ -85,7 +85,7 @@ function initiateLogon() {
     status = data.status;
     console.log('Parsing json to determine next step: ' + status);
     console.log('Id is :' + data.id);
-    flowId=data.id;
+    flowId= (data.id).toString();
     console.log('FlowId is: ' + flowId);
   
     switch (status) {
