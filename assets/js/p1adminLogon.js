@@ -1,5 +1,5 @@
 const adminClient = '9d6751a0-cbb9-4e3f-8efb-c93d2733dc9d';
-
+const adminRedirect = 'https://morgapp.ping-eng.com/p1ui/adminlogon.html';
 // build the authorization url in case we need it
 
 const authorizationUrl =
@@ -11,7 +11,7 @@ const authorizationUrl =
   '&response_type=' +
   responseType +
   '&redirect_uri=' +
-  redirectUri +
+  adminRedirect +
   '&scope=' +
   scopes +
   '&response_mode=pi.flow';
