@@ -96,7 +96,7 @@ function initiateLogon() {
         $('#changePasswordDiv').hide();
         $('#pwResetCodeDiv').hide();
         $('#validatePasswordUrl').val(data._links['usernamePassword.check'].href);
-        $('#registerUserUrl').val(data._links['registration.external'].href);
+        //$('#registerUserUrl').val(data._links['registration.external'].href);
         $('#validatePasswordContentType').val('application/vnd.pingidentity.usernamePassword.check+json');
         $('#forgotPasswordURL').val(data._links["password.forgot"].href);
         //$('#socialLoginUrl').val(data._embedded.socialProviders[0]._links.authenticate.href);
