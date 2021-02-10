@@ -4,6 +4,8 @@ function registerUser() {
   let contentType = 'application/vnd.pingidentity.user.register+json';
   //let url = apiUrl + "/environments/" + environmentID + "/users";
   //{{authPath}}/{{envID}}/flows/{{flowID}}
+  let url = authUrl + '/' + environmentID + '/flows/' + flowId;
+
   
   //let url = $('#registerUserUrl').val();
   let payload = JSON.stringify({
