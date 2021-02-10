@@ -39,31 +39,22 @@ function registerUser() {
 }
 
 function getAccessToken() {
-  console.log("getAccessToken was called");
-  let method = 'POST'
-  let url = authUrl + "/" + environmentID + "/as/token";
-  console.log(url);
-  //let tok = workerClientID + ':' + workerClientSecret;
-  //let hash = btoa(tok);
-  //let auth = "Basic " + hash;
-  //let contentType = "application/x-www-form-urlencoded";
-  let payload = JSON.stringify({
-    grant_type: "client_credentials",
-    client_id: "cedd8115-38d5-49f6-8bd8-043505fd83c6",
-    client_secret: "EAarQcJAyAsS2QZN46MSrQD_nUHUK9~b2liHYlULE3jKne1EPIFwGG3Jayo6upBQ"
-  });
-  console.log(payload);
-  $.ajax({
-    url: url,
-    method: method,
-    contentType: 'application/x-www-form-urlencoded',
-    data: payload,
-    xhrFields: {
-      withCredentials: true
+  var settings = {
+    "url": "https://auth.pingone.com/ca3ad373-df71-4eb5-a3b5-76439336e1d6/as/token",
+    "method": "POST",
+    "timeout": 0,
+    "headers": {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "data": {
+      "grant_type": "client_credentials",
+      "client_id": "cedd8115-38d5-49f6-8bd8-043505fd83c6",
+      "client_secret": "EAarQcJAyAsS2QZN46MSrQD_nUHUK9~b2liHYlULE3jKne1EPIFwGG3Jayo6upBQ"
     }
-  }).done(function(response) {
+  };
+  
+  $.ajax(settings).done(function (response) {
     console.log(response);
-    setCookies(response);
   });
 }
 
