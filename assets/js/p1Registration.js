@@ -47,13 +47,18 @@ function getAccessToken() {
   //let hash = btoa(tok);
   //let auth = "Basic " + hash;
   //let contentType = "application/x-www-form-urlencoded";
-  let auth = 'Basic Y2VkZDgxMTUtMzhkNS00OWY2LThiZDgtMDQzNTA1ZmQ4M2M2OkVBYXJRY0pBeUFzUzJRWk40Nk1TclFEX25VSFVLOX5iMmxpSFlsVUxFM2pLbmUxRVBJRndHRzNKYXlvNnVwQlE='
+  let payload = JSON.stringify({
+    grant_type: "client_credentials",
+    client_id: "cedd8115-38d5-49f6-8bd8-043505fd83c6",
+    client_secret: "EAarQcJAyAsS2QZN46MSrQD_nUHUK9~b2liHYlULE3jKne1EPIFwGG3Jayo6upBQ"
+  });
   console.log(auth);
   $.ajax({
     url: url,
     method: method,
     dataType: 'json',
     contentType: 'application/x-www-form-urlencoded',
+    data: payload,
     beforeSend: function(xhr) {
       xhr.setRequestHeader(auth);
     }
