@@ -35,6 +35,12 @@ function adminGetUser(){
       document.getElementById("lname").value = userJson._embedded.users[0].name.family;
       document.getElementById("email").value = userJson._embedded.users[0].email;
       document.getElementById("username").value = userJson._embedded.users[0].username;
+
+      document.getElementById("usernameFill").innerHTML = 'Username: ' + userJson._embedded.users[0].username;
+      document.getElementById("fnameFill").innerHTML = userJson._embedded.users[0].name.given;
+      document.getElementById("lnameFill").innerHTML = userJson._embedded.users[0].name.family;
+      document.getElementById("emailFill").innerHTML = userJson._embedded.users[0].email;
+      document.getElementById("usernameFill").innerHTML = userJson._embedded.users[0].username;
       //document.getElementById("address").innerHTML=streetAddress;
     } else {
       document.getElementById("username").innerHTML = 'Welcome Guest';

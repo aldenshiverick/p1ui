@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>User Profile Page</title>
+		<title>Administrator Page</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -58,16 +58,24 @@
 						<form method="post" action="#">
 							<div class="row uniform 50%">
                                 <div class="6u 12u$(xsmall)">
-									<input type="text" name="username" id="username" value="" placeholder="username" />
-								</div>
-                                <div class="6u 12u$(xsmall)">
-									<input type="text" name="name" id="fname" value="" placeholder="First Name" />
-								</div>
-								<div class="6u$ 12u$(xsmall)">
-									<input type="text" name="name" id="lname" value="" placeholder="Last Name" />
+									<section>
+										<p name="username" id="usernameFill" value="">
+											<b>Username:</b> 
+										</p>
+										<p name="name" id="fnameFill" value="">
+											<b>First Name:</b>
+										</p>
+										<p name="name" id="lnameFill" value="">
+											<b>Last Name:</b>
+										</p>
+									</section>
 								</div>
 								<div class="4u">
-									<input type="email" name="email" id="email" value="" placeholder="Email" />
+									<section>
+										<p name="email" id="emailFill" value="">
+											<b>Email:</b>
+										</p>
+									</section>
 								</div>
 								<div class="4u 12u$(xsmall)"> 
 									<lable for="birthday">Birthday</lable>
