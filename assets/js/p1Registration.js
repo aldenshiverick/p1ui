@@ -90,7 +90,7 @@ function validateUser(){
   console.log('verifyUser called');
   let otp = $('#user_otp').val();
   let payload = JSON.stringify({
-    verificationCode: $('#otp_login').val()
+    verificationCode: $('#user_otp').val()
   });
   //let url = $('#validateOtpUrl').val();
   //let url = $('verifyUserUrl').val();
