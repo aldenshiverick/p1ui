@@ -186,7 +186,28 @@
             <script src="assets/js/main.js"></script>
             
             <script src="assets/js/p1helper.js"></script>
-            <script src="assets/js/p1admin.js"></script>
+			<script src="assets/js/p1admin.js"></script>
+			<script>
+				$(document).ready(function () {
+					console.log("Page ready function");
+		
+					if (Cookies.get('accessToken') && Cookies.get('idToken')) {
+					// yes, user already has a session
+		
+					console.log('User has session : id_token (' + Cookies.get('idToken') + ')');
+					console.log('accessToken (' + Cookies.get('accessToken') + ')');
+		
+		
+					} else {
+		
+						location.href='https://morgapp.ping-eng.com/p1ui/adminlogo.html';
+		
+						}
+		
+					}
+		
+				})
+		  </script>
 
 	</body>
 </html>

@@ -1,3 +1,5 @@
+const adminClient = '9d6751a0-cbb9-4e3f-8efb-c93d2733dc9d';
+
 // build the authorization url in case we need it
 
 const authorizationUrl =
@@ -5,7 +7,7 @@ const authorizationUrl =
   '/' +
   environmentID +
   '/as/authorize?client_id=' +
-  agentClientID +
+  adminClient +
   '&response_type=' +
   responseType +
   '&redirect_uri=' +
