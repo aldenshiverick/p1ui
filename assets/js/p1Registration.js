@@ -120,7 +120,7 @@ function nextStep(data) {
     case 'COMPLETED':
       console.log('Registration was a SUCCESS!');
       console.log(data._links);
-      let url = data._links["resumeUrl"].href;
+      let url = data._links["device.select"].href;
       console.log('resume url is :' + url);
       finishAuth(url);
       
@@ -130,9 +130,24 @@ function nextStep(data) {
       break;
   }
 }
-
+function getFlowStatus(){
+  let url = authUrl + "/" + environmentID + "/flows/" +flowId;
+  exJax('POST', url ,nextStep);
+}
 function finishAuth(url){
   console.log('finishAuth called');
-  exJax('POST', url);
+  exJax('POST', url , setCookies);
   location.href = 'https://morgapp.ping-eng.com/p1ui/profile.html';
+}
+
+
+function setCookies(data){
+  console.log("setcookie Called");
+  console.log(data);
+  let userAPIid = data._embedded.user.id;
+  console.log('user is: ' + userAPIid);
+  let accessToken = data.authorizeResponse.access_token
+Cookies.set('userAPIid', userAPIid,{ sameSite: 'strict' });
+Cookies.set('accessToken', accessToken, { sameSite: 'strict' });
+window.location.replace("https://morgapp.ping-eng.com/p1ui/profile.html");
 }
