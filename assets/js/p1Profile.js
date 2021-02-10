@@ -89,13 +89,13 @@ function updateUserValues(){
       family: $('#lname').val()
     },
     birthday: $('#birthday').val(),
-    gender: $('gender').val(),
+    gender: $('#gender').val(),
     //relationship: 
     address: {
       streetAddress: $('#address').val(),
-      locality: $('city').val(),
-      region: $('state').val(),
-      postalCode: $('zip').val()
+      locality: $('#city').val(),
+      region: $('#state').val(),
+      postalCode: $('#zip').val()
     },
   });
   console.log(payload);
