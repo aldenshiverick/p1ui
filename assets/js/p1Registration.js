@@ -1,25 +1,25 @@
 function registerUser() {
   console.log("registerUser was called");
   let method = "POST";
-  let at = Cookies.get('at');
+  //let at = Cookies.get('at');
   let flow = Cookies.get('flowID');
   //let contentType = 'application/vnd.pingidentity.user.register+json';
   let url = authUrl + '/' + environmentID + '/flows/' + flow;
   let payload = JSON.stringify({
     username: $('#email').val(),
-    name: {
-      given: $('#fname').val(),
-      family: $('#lname').val()
-    },
-    birthday: $('#birthday').val(),
-    gender: $('gender').val(),
-    //relationship: 
-    address: {
-      streetAddress: $('#address').val(),
-      locality: $('city').val(),
-      region: $('state').val(),
-      postalCode: $('zip').val()
-    },
+    // name: {
+    //   given: $('#fname').val(),
+    //   family: $('#lname').val()
+    // },
+    // birthday: $('#birthday').val(),
+    // gender: $('gender').val(),
+    // //relationship: 
+    // address: {
+    //   streetAddress: $('#address').val(),
+    //   locality: $('city').val(),
+    //   region: $('state').val(),
+    //   postalCode: $('zip').val()
+    // },
     password: $('#user_pass').val()
   });
   console.log('url:' + url);
