@@ -1,13 +1,9 @@
 function registerUser() {
   console.log("registerUser was called");
   let method = "POST";
+  let at = Cookies.get('at');
   let contentType = 'application/vnd.pingidentity.user.register+json';
-  //let url = apiUrl + "/environments/" + environmentID + "/users";
-  //{{authPath}}/{{envID}}/flows/{{flowID}}
   let url = authUrl + '/' + environmentID + '/flows/' + flowId;
-
-  
-  //let url = $('#registerUserUrl').val();
   let payload = JSON.stringify({
     username: $('#email').val(),
     name: {
@@ -27,19 +23,51 @@ function registerUser() {
   });
   console.log('url:' + url);
   console.log('payload:' + payload);
-  exJax("POST", url, nextStep, contentType, payload);
+  //exJax("POST", url, nextStep, contentType, payload);
+  $.ajax({
+    url: url,
+    method: 'POST',
+    dataType: 'json',
+    contentType: contenttype,
+    data: payload,
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader('Authorization', at);
+    }
+  }).done(function(response) {
+    console.log(response);
+  });
 }
 
 function getAccessToken() {
   console.log("getAccessToken was called");
-  let url = authUrl + "/environments/" + environmentID + "/as/token";
+  let method = 'POST'
+  let url = authUrl + "/" + environmentID + "/as/token";
   console.log(url);
   let tok = workerClientID + ':' + workerClientSecret;
   let hash = btoa(tok);
   let auth = "Basic " + hash;
   let contentType = "application/x-www-form-urlencoded";
   console.log(auth);
-  exJax("POST", url, nextStep, contentType, payload);
+  $.ajax({
+    url: url,
+    method: method,
+    dataType: 'json',
+    contentType: contenttype,
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader(auth);
+    }
+  }).done(function(response) {
+    console.log(response);
+    setCookies(response);
+  });
+}
+
+function setCookies(data){
+  console.log("setcookie Called");
+  console.log(data);
+  let at = data.accessToken;
+  console.log('user is: ' + at);
+Cookies.set('at', accessToken, { sameSite: 'strict' });
 }
 
 function checkPass()
