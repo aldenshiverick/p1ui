@@ -1,126 +1,3 @@
-
-// function getUserValues() {
-//     console.log('getUserValues called');
-//     let method = "GET";
-//     let user = Cookies.get("userAPIid");
-//     let at = "Bearer " + Cookies.get("accessToken");
-//     let url = apiUrl + "/environments/" + environmentID + "/users/" + user;
-//     console.log('ajax (' + url + ')');
-//     console.log('at =' + at);
-//     console.log("make ajax call");
-//     $.ajax({
-//       async: "true",
-//       url: url,
-//       method: method,
-//       beforeSend: function(xhr) {
-//         xhr.setRequestHeader('Authorization', at);
-//       }
-//     }).done(function(response) {
-//       console.log(response);
-//       setUserValues(response);
-//     });
-
-//     console.log("getUserValues completed");
-  
-//   }
-  
-  // function setUserValues(userJson) {
-  //   console.log("setuserValues was called");
-  //   console.log(userJson);
-  //   let uuid = Cookies.get("uuid");
-  //   //let streetAddress = userJson.address.streetAddress + " " + userJson.address.locality + ", " + userJson.address.region + " " + userJson.address.postalCode;
-  //   if (Cookies.get("accessToken")) {
-  //     if(userJson.name){
-  //       if(userJson.name.given){
-  //         console.log("givenname if was passes")
-  //         document.getElementById("fname").value = userJson.name.given;
-  //       }
-  //       if(userJson.name.family){
-  //       document.getElementById("lname").value = userJson.name.family;
-  //       }
-  //     }
-  //     document.getElementById("email").value = userJson.email;
-  //     //document.getElementById("username").value = userJson.username;
-  //     if(userJson.birthday != null){
-  //       document.getElementById("birthday").value =  userJson.birthday;
-  //     }
-  //     if(userJson.gender != null){
-  //       document.getElementById("gender").value = userJson.gender;
-  //     }
-  //     if(userJson.relationship != null){
-  //       document.getElementById("relationship").value = userJson.relationship;
-  //     }
-  //     if(userJson.address.streetAddress != null){
-  //       document.getElementById("address").value = userJson.address.streetAddress;
-  //     }
-  //     if(userJson.address.locality != null){
-  //       document.getElementById("city").value = userJson.address.locality;
-  //     }
-  //     if(userJson.address.region != null){
-  //       document.getElementById("state").value = userJson.address.region;
-  //     }
-  //     if(userJson.address.postalCode != null){
-  //       document.getElementById("zip").value = userJson.address.postalCode;
-  //     }
-  //   } else {
-  //     document.getElementById("Hello").value = 'Welcome Guest';
-  //   }
-  //   console.log(userJson.username);
-  
-  //   //let idPayload = parseJwt(idToken);
-  // }
-
-
-function createUserValues(){
-  console.log("createUserValues was called");
-  let method = "POST";
-  let at = "Bearer " + Cookies.get("accessToken");
-  let url = apiUrl + "/environments/" + environmentID + "/users";
-  let payload = JSON.stringify({
-    username: $('#username').val(),
-    name: {
-      given: $('#fname').val(),
-      family: $('#lname').val()
-    },
-    birthday: $('#birthday').val(),
-    gender: $('gender').val(),
-    //relationship: 
-    address: {
-      streetAddress: $('#address').val(),
-      locality: $('city').val(),
-      region: $('state').val(),
-      postalCode: $('zip').val()
-    },
-  });
-  console.log(payload);
-  console.log('ajax (' + url + ')');
-  console.log('at =' + at);
-  console.log("make ajax call");
-  $.ajax({
-      async: "true",
-      url: url,
-      method: method,
-      dataType: 'json',
-      contentType: 'application/json',
-      data: payload,
-      beforeSend: function(xhr) {
-        xhr.setRequestHeader('Authorization', at);
-      }
-    }).done(function(data) {
-      console.log(data);
-    })
-    .fail(function(data) {
-      console.log('ajax call failed');
-      console.log(data);
-      $('#warningMessage').text(data.responseJSON.details[0].message);
-      $('#warningDiv').show();
-    });
-  //add brief delay so info is populated
-  setTimeout(function() {
-    getUserValues();
-  }, 1000);
-}
-
 function registerUser() {
   console.log("registerUser was called");
   let method = "POST";
@@ -161,42 +38,31 @@ function getAccessToken() {
   exJax("POST", url, nextStep, contentType, payload);
 }
 
-function setPassword(){
-  console.log("updatePassword was called");
-  let method = "PUT";
-  let user = Cookies.get("userAPIid");
-  let at = "Bearer " + Cookies.get("accessToken");
-  let url = apiUrl + "/environments/" + environmentID + "/users/" + user + "/password";
-  let payload = JSON.stringify({
-    currentPassword: $('#currentPass').val(),
-    newPassword: $('#newPass').val()
-  });
-  console.log(payload);
-  console.log('ajax (' + url + ')');
-  console.log('at =' + at);
-  console.log('user = ' + user);
-  console.log("make ajax call");
-  $.ajax({
-      async: "true",
-      url: url,
-      method: method,
-      dataType: 'json',
-      contentType: 'application/vnd.pingidentity.password.reset+json',
-      data: payload,
-      beforeSend: function(xhr) {
-        xhr.setRequestHeader('Authorization', at);
-      }
-    }).done(function(data) {
-      console.log(data);
-    })
-    .fail(function(data) {
-      console.log('ajax call failed');
-      console.log(data);
-      $('#warningMessage').text(data.responseJSON.details[0].message);
-      $('#warningDiv').show();
-    });
-  //add brief delay so info is populated
-  setTimeout(function() {
-    getUserValues();
-  }, 1000);
-}
+function checkPass()
+{
+    //Store the password field objects into variables ...
+    var password = document.getElementById('user_pass');
+    var confirm  = document.getElementById('user_pass_conf');
+    //Store the Confirmation Message Object ...
+    var message = document.getElementById('confirm-message2');
+    //Set the colors we will be using ...
+    var good_color = "#66cc66";
+    var bad_color  = "#ff6666";
+    //Compare the values in the password field 
+    //and the confirmation field
+    if(password.value == confirm.value){
+        //The passwords match. 
+        //Set the color to the good color and inform
+        //the user that they have entered the correct password 
+        confirm.style.backgroundColor = good_color;
+        message.style.color           = good_color;
+        message.innerHTML             = '<img src="/wp-content/uploads/2019/04/tick.png" alt="Passwords Match!">';
+    }else{
+        //The passwords do not match.
+        //Set the color to the bad color and
+        //notify the user.
+        confirm.style.backgroundColor = bad_color;
+        message.style.color           = bad_color;
+        message.innerHTML             = '<img src="/wp-content/uploads/2019/04/publish_x.png" alt="Passwords Do Not Match!">';
+    }
+}  

@@ -97,8 +97,9 @@ function initiateLogon() {
         $('#validatePasswordUrl').val(data._links['usernamePassword.check'].href);
         $('#registerUserUrl').val(data._links['registration.external'].href);
         $('#validatePasswordContentType').val('application/vnd.pingidentity.usernamePassword.check+json');
-        console.log( 'register url: ' + data._links['registration.external'].href);
         $('#forgotPasswordURL').val(data._links["password.forgot"].href);
+        flowId=data.id;
+        console.log('FlowId is: ' + flowId);
         //$('#socialLoginUrl').val(data._embedded.socialProviders[0]._links.authenticate.href);
         //$('#partnerLoginUrl').val(data._embedded.socialProviders[1]._links.authenticate.href);
         $('#ppDiv').hide('');
@@ -274,6 +275,7 @@ function initiateLogon() {
   
   //-------Redirect to Registration------//
   function redirect_toReg(){
+
     location.href = 'https://morgapp.ping-eng.com/p1ui/register.html?' + 'environmentId=' + environmentID + '&flowId=' + flowId;
   }
   

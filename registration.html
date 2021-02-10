@@ -94,6 +94,16 @@
 										   id="zip" 
 										   value="zip">
 								</div>
+								<div class="row uniform 50%">
+									<div class="6u 12u$(xsmall)">
+										<input type="password" name="user_pass" id="user_pass" value="Password"  onkeyup="checkPass();" />
+									</div>
+									<div class="6u$ 12u$(xsmall)">
+										<input type="password" name="user_pass_conf" id="user_pass_conf" value="Confrim Password"  onkeyup="checkPass();"/>
+									</div>
+									<span id="confirm-message2" class="confirm-message"></span>
+									
+								</div>
 							</div>
 						</form>
 					</section>
@@ -101,19 +111,11 @@
 					<!-- Buttons -->
 					<section>
 						<ul class="actions">
-							<li><a href="#" class="button" onclick="updateUserValues();">Save</a></li> 
-							<li><a href="#" class="button alt" onclick="getUserValues();">Cancel</a></li>
+							<li><a href="#" class="button" onclick="updateUserValues();">Create Account</a></li> 
 						</ul>
 					</section>
 					<section>
-						<div class="row uniform 50%">
-							<div class="6u 12u$(xsmall)">
-								<input type="password" name="currentPass" id="currentPass" value="" />
-							</div>
-							<div class="6u$ 12u$(xsmall)">
-								<input type="password" name="newPass" id="newPass" value="" />
-							</div>
-						</div>
+						
 					</section>
 				</br>
 					<section>
