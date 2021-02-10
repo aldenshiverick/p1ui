@@ -274,6 +274,7 @@ function initiateLogon() {
   
   //-------Redirect to Registration------//
   function redirect_toReg(){
+    Cookies.set('flowID', flowId, {sameSite: 'strict'});
 
     location.href = 'https://morgapp.ping-eng.com/p1ui/registration.html';
   }
