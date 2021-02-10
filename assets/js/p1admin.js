@@ -3,11 +3,12 @@ function adminGetUser(type){
     console.log('adminGetUser called');
     let method = "GET";
     // let user = document.getElementById('PassID').value;
+    let url;
     console.log(user);
     let at = "Bearer " + Cookies.get("accessToken");
     if(type == "email"){
       let value = document.getElementById('email');
-      let url = apiUrl + "/environments/" + environmentID + "/users/?filter=email%20eq%20%22" + value + "%22";
+      url = apiUrl + "/environments/" + environmentID + "/users/?filter=email%20eq%20%22" + value + "%22";
     }
     // if(type == "passID"){
     //   let url = apiUrl + "/environments/" + environmentID + "/users/?filter=username%20eq%20%22" + user + "%22";
