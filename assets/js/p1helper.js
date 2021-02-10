@@ -73,6 +73,7 @@ function parseJwt(token) {
         }
       })
       .done(function(data) {
+        console.log(data);
         callback(data);
       })
       .fail(function(data) {
