@@ -46,13 +46,13 @@ function getAccessToken() {
   let tok = workerClientID + ':' + workerClientSecret;
   let hash = btoa(tok);
   let auth = "Basic " + hash;
-  let contentType = "application/x-www-form-urlencoded";
+  //let contentType = "application/x-www-form-urlencoded";
   console.log(auth);
   $.ajax({
     url: url,
     method: method,
     dataType: 'json',
-    contentType: contenttype,
+    contentType: 'application/x-www-form-urlencoded',
     beforeSend: function(xhr) {
       xhr.setRequestHeader(auth);
     }
