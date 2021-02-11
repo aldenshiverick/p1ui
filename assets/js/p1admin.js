@@ -40,11 +40,11 @@ function adminGetUser(type){
       //document.getElementById("usernameFill").value = 'Hello ' + userJson._embedded.users[0].username + "!";
       document.getElementById("usernameFill").innerHTML = 'Hello ' + userJson._embedded.users[0].username + "!"
 
-      if ('name.given' in userJson._embedded.users[0] == undefined)
+      if ('name.given' in userJson._embedded.users[0] != undefined)
       {
          document.getElementById("fnameFill").innerHTML = userJson._embedded.users[0].name.given;
       }
-      if('name.family' in userJson._embedded.users[0] == undefined){
+      if('name.family' in userJson._embedded.users[0] != undefined){
       document.getElementById("lnameFill").innerHTML = userJson._embedded.users[0].name.family;
       }
       document.getElementById("emailFill").innerHTML = userJson._embedded.users[0].email;
