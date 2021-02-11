@@ -40,16 +40,19 @@
                     <form method="post" action="#">
                         <div class="row uniform 50%">
                             <div class="6u 12u$(xsmall)">
-                                <input type="text" name="PassID" id="PassID" value="" placeholder="PassID" />
+								<input type="text" name="PassID" id="PassID" value="" placeholder="PassID" />
+							</br>
                                 <span class="button special" onclick="adminGetUser('passID')">Retrieve User</span>
                             </div>
 
                             <div class="6u 12u$(xsmall)">
-                                <input type="text" name="email" id="email" value="" placeholder="Email" />
+								<input type="text" name="email" id="email" value="" placeholder="Email" />
+							</br>
                                 <span class="button special" onclick="adminGetUser('email')">Retrieve User</span>
                             </div>
                         </div>
-                    </form>
+					</form>
+					
                     <!-- Form -->
 					<section>
 
@@ -128,40 +131,9 @@
 
 					<!-- Buttons -->
 					<section>
-						<h3>Buttons</h3>
 						<ul class="actions">
-							<li><a href="#" class="button special">Special</a></li>
-							<li><a href="#" class="button">Default</a></li>
-							<li><a href="#" class="button alt">Alternate</a></li>
-						</ul>
-						<ul class="actions">
-							<li><a href="#" class="button special big">Big</a></li>
-							<li><a href="#" class="button">Default</a></li>
-							<li><a href="#" class="button alt small">Small</a></li>
-						</ul>
-						<div class="row">
-							<div class="6u 12u$(xsmall)">
-								<ul class="actions fit">
-									<li><a href="#" class="button fit">Fit</a></li>
-									<li><a href="#" class="button alt fit">Fit</a></li>
-								</ul>
-							</div>
-							<div class="6u$ 12u$(xsmall)">
-								<ul class="actions fit small">
-									<li><a href="#" class="button fit small">Fit + Small</a></li>
-									<li><a href="#" class="button alt fit small">Fit + Small</a></li>
-								</ul>
-							</div>
-						</div>
-						<ul class="actions">
-							<li><a href="#" class="button special icon fa-download">Icon</a></li>
-							<li><a href="#" class="button icon fa-download">Icon</a></li>
-							<li><a href="#" class="button alt icon fa-download">Icon</a></li>
-						</ul>
-						<ul class="actions">
-							<li><span class="button special disabled">Special</span></li>
-							<li><span class="button disabled">Default</span></li>
-							<li><span class="button alt disabled">Alternate</span></li>
+							<li><a href="#" class="button" onclick="updateUserValues();">Save</a></li> 
+							<li><a href="#" class="button alt" onclick="getUserValues();">Cancel</a></li>
 						</ul>
 					</section>
 				</div>
