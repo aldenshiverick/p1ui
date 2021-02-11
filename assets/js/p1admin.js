@@ -37,14 +37,14 @@ function adminGetUser(type){
     console.log(userJson._embedded.users[0].id);
     Cookies.set('currentUser', userJson._embedded.users[0].id);
     if (Cookies.get("accessToken")) {
-      //document.getElementById("user").value = 'Hello ' + userJson._embedded.users[0].username + "!";
-      document.getElementById("fname").value = userJson._embedded.users[0].name.given;
-      document.getElementById("lname").value = userJson._embedded.users[0].name.family;
-      document.getElementById("email").value = userJson._embedded.users[0].email;
-      document.getElementById("username").value = userJson._embedded.users[0].username;
+      document.getElementById("usernameFill").value = 'Hello ' + userJson._embedded.users[0].username + "!";
+      document.getElementById("fnameFill").value = userJson._embedded.users[0].name.given;
+      document.getElementById("lnameFill").value = userJson._embedded.users[0].name.family;
+      document.getElementById("emailFill").value = userJson._embedded.users[0].email;
+      document.getElementById("usernameFill").value = userJson._embedded.users[0].username;
       //document.getElementById("address").innerHTML=streetAddress;
     } else {
-      document.getElementById("username").innerHTML = 'Welcome Guest';
+      document.getElementById("usernameFill").innerHTML = 'Welcome Guest';
     }
   }
 
