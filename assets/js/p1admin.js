@@ -38,10 +38,11 @@ function adminGetUser(type){
     Cookies.set('currentUser', userJson._embedded.users[0].id);
     if (Cookies.get("accessToken")) {
       //document.getElementById("usernameFill").value = 'Hello ' + userJson._embedded.users[0].username + "!";
-      document.getElementById("usernameFill").innerHTML = 'Viewing' + userJson._embedded.users[0].username;
+      document.getElementById("usernameFill").innerHTML = 'Viewing ' + userJson._embedded.users[0].username;
 
-      if ('name.given' in userJson._embedded.users[0] != undefined)
+      if (userJson._embedded.users[0].name.given != null)
       {
+        console.log('given name exisits')
          document.getElementById("fnameFill").innerHTML = 'First Name: ' + userJson._embedded.users[0].name.given;
       }
       if('name.family' in userJson._embedded.users[0] != undefined){
