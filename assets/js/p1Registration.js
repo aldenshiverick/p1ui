@@ -28,34 +28,6 @@ function registerUser() {
   exJax("POST", url, nextStep, contentType, payload);
 }
 
-// function getAccessToken() {
-//   var settings = {
-//     "url": "https://auth.pingone.com/ca3ad373-df71-4eb5-a3b5-76439336e1d6/as/token",
-//     "method": "POST",
-//     "timeout": 0,
-//     "headers": {
-//       "Content-Type": "application/x-www-form-urlencoded"
-//     },
-//     "data": {
-//       "grant_type": "client_credentials",
-//       "client_id": "cedd8115-38d5-49f6-8bd8-043505fd83c6",
-//       "client_secret": "EAarQcJAyAsS2QZN46MSrQD_nUHUK9~b2liHYlULE3jKne1EPIFwGG3Jayo6upBQ"
-//     }
-//   };
-  
-//   $.ajax(settings).done(function (response) {
-//     console.log(response);
-//     setCookies(response);
-//   });
-// }
-
-// function setCookies(data){
-//   console.log("setcookie Called");
-//   console.log(data.access_token);
-//   let at = data.access_token;
-//   console.log('at is: ' + at);
-//   Cookies.set('at', at, { sameSite: 'strict' });
-// }
 
 function checkPass()
 {

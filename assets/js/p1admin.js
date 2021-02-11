@@ -42,6 +42,7 @@ function adminGetUser(){
   }
 
   function getWorkerAccessToken() {
+    console.log("getWorkerAT called")
     var settings = {
       "url": "https://auth.pingone.com/ca3ad373-df71-4eb5-a3b5-76439336e1d6/as/token",
       "method": "POST",
