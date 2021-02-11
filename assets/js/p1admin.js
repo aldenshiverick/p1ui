@@ -6,9 +6,11 @@ function adminGetUser(type){
   let value = "";
   if(type == 'email'){
     value = document.getElementById('email').value;
+    console.log(value);
   }
   if(type == 'passID'){
     value = document.getElementById('PassID').value;
+    console.log(value);
   }
   console.log(value);
   let at = "Bearer " + Cookies.get("workerAT");
