@@ -44,15 +44,15 @@ function adminSetUserValues(userJson) {
       console.log('given name exisits')
       document.getElementById("fnameFill").value = userJson._embedded.users[0].name.given;
     }
-    if('name.family' in userJson._embedded.users[0] != undefined){
+    if(userJson._embedded.users[0].name.family != undefined){
       document.getElementById("lnameFill").value = userJson._embedded.users[0].name.family;
     }
     // if('birthday' in userJson._embedded.users[0] != undefined){
     //   document.getElementById("birthday").value = userJson._embedded.user[0].birthday;
     // }
-    if('gender' in userJson._embedded.users[0] != undefined){
-      document.getElementById("gender").value = userJson._embedded.user[0].gender;
-    }
+    // if('gender' in userJson._embedded.users[0] != undefined){
+    //   document.getElementById("gender").value = userJson._embedded.user[0].gender;
+    // }
     if('address' in userJson._embedded.users[0] != undefined){
       document.getElementById("address").value = userJson._embedded.user[0].address.streetAddress;
     }
