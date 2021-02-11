@@ -2,10 +2,15 @@ function adminGetUser(){
     //{{apiPath}}/environments/{{envID}}/users/?filter=username%20eq%20%22lsmith%22
     console.log('adminGetUser called');
     let method = "GET";
-    let user = document.getElementById('username').value;
+    if(type == 'email'){
+      let value = document.getElementById('email').value;
+    }
+    if(type == 'passID'){
+      let value = document.getElementById('PassID').value;
+    }
     console.log(user);
     let at = "Bearer " + Cookies.get("workerAT");
-    let url = apiUrl + "/environments/" + environmentId + "/users/?filter=username%20eq%20%22" + user + "%22";
+    let url = apiUrl + "/environments/" + environmentID + "/users/?filter=" + type + "%20eq%20%22" + value + "%22";
     console.log('ajax (' + url + ')');
     console.log('at =' + at);
     console.log("make ajax call");
