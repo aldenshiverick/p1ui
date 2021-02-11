@@ -47,9 +47,9 @@ function adminSetUserValues(userJson) {
     if('name.family' in userJson._embedded.users[0] != undefined){
       document.getElementById("lnameFill").value = userJson._embedded.users[0].name.family;
     }
-    if('birthday' in userJson._embedded.users[0] != undefined){
-      document.getElementById("birthday").value = userJson._embedded.user[0].birthday;
-    }
+    // if('birthday' in userJson._embedded.users[0] != undefined){
+    //   document.getElementById("birthday").value = userJson._embedded.user[0].birthday;
+    // }
     if('gender' in userJson._embedded.users[0] != undefined){
       document.getElementById("gender").value = userJson._embedded.user[0].gender;
     }
