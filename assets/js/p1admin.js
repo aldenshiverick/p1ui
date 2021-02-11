@@ -8,7 +8,7 @@ function adminGetUser(){
     if(type == 'passID'){
       let value = document.getElementById('PassID').value;
     }
-    console.log(user);
+    console.log(value);
     let at = "Bearer " + Cookies.get("workerAT");
     let url = apiUrl + "/environments/" + environmentID + "/users/?filter=" + type + "%20eq%20%22" + value + "%22";
     console.log('ajax (' + url + ')');
@@ -25,7 +25,7 @@ function adminGetUser(){
       console.log('response '+response);
       adminSetUserValues(response);
     });
-    console.log("adminGetUser completed")
+    console.log("adminGetUser completed");
   }
 
 
