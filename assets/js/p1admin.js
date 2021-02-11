@@ -52,8 +52,8 @@ function adminGetUser(){
       },
       "data": {
         "grant_type": "client_credentials",
-        "client_id": "cedd8115-38d5-49f6-8bd8-043505fd83c6",
-        "client_secret": "EAarQcJAyAsS2QZN46MSrQD_nUHUK9~b2liHYlULE3jKne1EPIFwGG3Jayo6upBQ"
+        "client_id": "43bcef4e-95b2-4eab-a354-2cb7bc80430f",
+        "client_secret": "5I_PgI1Xgl7f0OvIohFuo7tt-.OKO68ReaV2SdlOc.qtNNH8re5X1GMgmZfKEjgc"
       }
     };
   
