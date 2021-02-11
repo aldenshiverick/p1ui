@@ -53,7 +53,7 @@ function adminSetUserValues(userJson) {
     // if('gender' in userJson._embedded.users[0] != undefined){
     //   document.getElementById("gender").value = userJson._embedded.user[0].gender;
     // }
-    if('address' in userJson._embedded.users[0] != undefined){
+    if(userJson._embedded.users[0].address != undefined){
       document.getElementById("address").value = userJson._embedded.user[0].address.streetAddress;
     }
     if('city' in userJson._embedded.users[0] != undefined){
