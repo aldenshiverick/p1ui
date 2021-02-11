@@ -43,7 +43,7 @@ function adminGetUser(type){
       if (userJson._embedded.users[0].name.given != null)
       {
         console.log('given name exisits')
-         document.getElementById("fnameFill").innerHTML = 'First Name: ' + userJson._embedded.users[0].name.given;
+         document.getElementById("fnameFill").value = 'First Name: ' + userJson._embedded.users[0].name.given;
       }
       if('name.family' in userJson._embedded.users[0] != undefined){
       document.getElementById("lnameFill").innerHTML = userJson._embedded.users[0].name.family;
