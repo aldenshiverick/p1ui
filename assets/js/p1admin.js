@@ -151,6 +151,6 @@ function updateUserValues(){
     });
   //add brief delay so info is populated
   setTimeout(function() {
-    getUserValues();
+    adminGetUser();
   }, 1000);
 }
