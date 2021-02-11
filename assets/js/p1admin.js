@@ -2,6 +2,8 @@ function adminGetUser(type){
     //{{apiPath}}/environments/{{envID}}/users/?filter=username%20eq%20%22lsmith%22
     console.log('adminGetUser called');
     let method = "GET";
+    let type = type;
+    let value = "";
     if(type == 'email'){
       let value = document.getElementById('email').value;
     }
