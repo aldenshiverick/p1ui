@@ -48,7 +48,7 @@ function adminGetUser(type){
       document.getElementById("lnameFill").innerHTML = userJson._embedded.users[0].name.family;
       }
       document.getElementById("emailFill").innerHTML = userJson._embedded.users[0].email;
-      document.getElementById("usernameFill").innerHTML = userJson._embedded.users[0].username;
+      //document.getElementById("usernameFill").innerHTML = userJson._embedded.users[0].username;
       //document.getElementById("address").innerHTML=streetAddress;
     } else {
       document.getElementById("usernameFill").innerHTML = 'Welcome Guest';
