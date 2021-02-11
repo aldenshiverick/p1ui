@@ -42,7 +42,7 @@ function adminGetUser(type){
       {
          document.getElementById("fnameFill").value = userJson._embedded.users[0].name.given;
       }
-      if(userJson_embedded.users[0]['name.family']){
+      if('name.family' in userJson._embedded.users[0] == undefined){
       document.getElementById("lnameFill").value = userJson._embedded.users[0].name.family;
       }
       document.getElementById("emailFill").value = userJson._embedded.users[0].email;
