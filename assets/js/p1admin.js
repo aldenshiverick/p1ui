@@ -46,9 +46,9 @@ function adminGetUser(type){
          document.getElementById("fnameFill").value = userJson._embedded.users[0].name.given;
       }
       if('name.family' in userJson._embedded.users[0] != undefined){
-      document.getElementById("lnameFill").innerHTML = userJson._embedded.users[0].name.family;
+      document.getElementById("lnameFill").value = userJson._embedded.users[0].name.family;
       }
-      document.getElementById("emailFill").innerHTML = userJson._embedded.users[0].email;
+      document.getElementById("emailFill").value = userJson._embedded.users[0].email;
       //document.getElementById("usernameFill").innerHTML = userJson._embedded.users[0].username;
       //document.getElementById("address").innerHTML=streetAddress;
     } else {
