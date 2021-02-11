@@ -37,7 +37,7 @@ function adminGetUser(type){
     console.log(userJson._embedded.users[0].id);
     Cookies.set('currentUser', userJson._embedded.users[0].id);
     if (Cookies.get("accessToken")) {
-      document.getElementById("user").value = 'Hello ' + userJson._embedded.users[0].username + "!";
+      //document.getElementById("user").value = 'Hello ' + userJson._embedded.users[0].username + "!";
       document.getElementById("fname").value = userJson._embedded.users[0].name.given;
       document.getElementById("lname").value = userJson._embedded.users[0].name.family;
       document.getElementById("email").value = userJson._embedded.users[0].email;
