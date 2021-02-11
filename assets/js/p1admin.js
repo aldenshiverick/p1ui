@@ -38,11 +38,11 @@ function adminGetUser(type){
     Cookies.set('currentUser', userJson._embedded.users[0].id);
     if (Cookies.get("accessToken")) {
       document.getElementById("usernameFill").value = 'Hello ' + userJson._embedded.users[0].username + "!";
-      if(userJson._embedded.users[0].name.given != null)
+      if(userJson._embedded.users[0].contains('name.given'))
       {
          document.getElementById("fnameFill").value = userJson._embedded.users[0].name.given;
       }
-      if(userJson_embedded.users[0].name.family != null){
+      if(userJson_embedded.users[0].contains('name.family')){
       document.getElementById("lnameFill").value = userJson._embedded.users[0].name.family;
       }
       document.getElementById("emailFill").value = userJson._embedded.users[0].email;
