@@ -53,18 +53,18 @@ function adminSetUserValues(userJson) {
     // if('gender' in userJson._embedded.users[0] != undefined){
     //   document.getElementById("gender").value = userJson._embedded.user[0].gender;
     // }
-    if(userJson._embedded.users[0].address != undefined){
-      document.getElementById("address").value = userJson._embedded.user[0].address.streetAddress;
-    }
-    if('city' in userJson._embedded.users[0] != undefined){
-      document.getElementById("city").value = userJson._embedded.user[0].address.locality;
-    }
-    if('state' in userJson._embedded.users[0] != undefined){
-      document.getElementById("state").value = userJson._embedded.user[0].address.region;
-    }
-    if('zip' in userJson._embedded.users[0] != undefined){
-      document.getElementById("zip").value = userJson._embedded.user[0].address.postalCode;
-    }
+    // if(userJson._embedded.users[0].address != undefined){
+    //   document.getElementById("address").value = userJson._embedded.user[0].address.streetAddress;
+    // }
+    // if('city' in userJson._embedded.users[0] != undefined){
+    //   document.getElementById("city").value = userJson._embedded.user[0].address.locality;
+    // }
+    // if('state' in userJson._embedded.users[0] != undefined){
+    //   document.getElementById("state").value = userJson._embedded.user[0].address.region;
+    // }
+    // if('zip' in userJson._embedded.users[0] != undefined){
+    //   document.getElementById("zip").value = userJson._embedded.user[0].address.postalCode;
+    // }
     document.getElementById("emailFill").value = userJson._embedded.users[0].email;
     //document.getElementById("usernameFill").innerHTML = userJson._embedded.users[0].username;
     //document.getElementById("address").innerHTML=streetAddress;
