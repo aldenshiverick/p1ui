@@ -203,9 +203,9 @@
 					console.log("Page ready function");
 		
 					if (Cookies.get('accessToken')) {
-					// yes, user already has a session
-	
-					console.log('accessToken (' + Cookies.get('accessToken') + ')');
+						console.log('Agent has a session');
+						getWorkerAccessToken();
+
 		
 		
 					} else {
