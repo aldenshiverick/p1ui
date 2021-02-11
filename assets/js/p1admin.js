@@ -43,10 +43,28 @@ function adminGetUser(type){
       if (userJson._embedded.users[0].name.given != null)
       {
         console.log('given name exisits')
-         document.getElementById("fnameFill").value = userJson._embedded.users[0].name.given;
+        document.getElementById("fnameFill").value = userJson._embedded.users[0].name.given;
       }
       if('name.family' in userJson._embedded.users[0] != undefined){
-      document.getElementById("lnameFill").value = userJson._embedded.users[0].name.family;
+        document.getElementById("lnameFill").value = userJson._embedded.users[0].name.family;
+      }
+      if('birthday' in userJson._embedded.users[0] != undefined){
+        document.getElementById("birthday").value = userJson._embedded.user[0].birthday;
+      }
+      if('gender' in userJson._embedded.users[0] != undefined){
+        document.getElementById("gender").value = userJson._embedded.user[0].gender;
+      }
+      if('address' in userJson._embedded.users[0] != undefined){
+        document.getElementById("address").value = userJson._embedded.user[0].address.streetAddress;
+      }
+      if('city' in userJson._embedded.users[0] != undefined){
+        document.getElementById("city").value = userJson._embedded.user[0].address.locality;
+      }
+      if('state' in userJson._embedded.users[0] != undefined){
+        document.getElementById("state").value = userJson._embedded.user[0].address.region;
+      }
+      if('zip' in userJson._embedded.users[0] != undefined){
+        document.getElementById("zip").value = userJson._embedded.user[0].address.postalCode;
       }
       document.getElementById("emailFill").value = userJson._embedded.users[0].email;
       //document.getElementById("usernameFill").innerHTML = userJson._embedded.users[0].username;
