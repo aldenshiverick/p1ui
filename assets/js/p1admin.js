@@ -42,7 +42,7 @@ function adminGetUser(type){
 
       if ('name.given' in userJson._embedded.users[0] != undefined)
       {
-         document.getElementById("fnameFill").innerHTML = userJson._embedded.users[0].name.given;
+         document.getElementById("fnameFill").innerHTML = 'First Name: ' + userJson._embedded.users[0].name.given;
       }
       if('name.family' in userJson._embedded.users[0] != undefined){
       document.getElementById("lnameFill").innerHTML = userJson._embedded.users[0].name.family;
