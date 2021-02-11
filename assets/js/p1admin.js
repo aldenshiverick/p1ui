@@ -37,16 +37,18 @@ function adminGetUser(type){
     console.log(userJson._embedded.users[0].id);
     Cookies.set('currentUser', userJson._embedded.users[0].id);
     if (Cookies.get("accessToken")) {
-      document.getElementById("usernameFill").value = 'Hello ' + userJson._embedded.users[0].username + "!";
+      //document.getElementById("usernameFill").value = 'Hello ' + userJson._embedded.users[0].username + "!";
+      document.getElementById("usernameFill").innerHTML = 'Hello ' + userJson._embedded.users[0].username + "!"
+
       if ('name.given' in userJson._embedded.users[0] == undefined)
       {
-         document.getElementById("fnameFill").value = userJson._embedded.users[0].name.given;
+         document.getElementById("fnameFill").innerHTML = userJson._embedded.users[0].name.given;
       }
       if('name.family' in userJson._embedded.users[0] == undefined){
-      document.getElementById("lnameFill").value = userJson._embedded.users[0].name.family;
+      document.getElementById("lnameFill").innerHTML = userJson._embedded.users[0].name.family;
       }
-      document.getElementById("emailFill").value = userJson._embedded.users[0].email;
-      document.getElementById("usernameFill").value = userJson._embedded.users[0].username;
+      document.getElementById("emailFill").innerHTML = userJson._embedded.users[0].email;
+      document.getElementById("usernameFill").innerHTML = userJson._embedded.users[0].username;
       //document.getElementById("address").innerHTML=streetAddress;
     } else {
       document.getElementById("usernameFill").innerHTML = 'Welcome Guest';
