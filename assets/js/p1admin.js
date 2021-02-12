@@ -118,7 +118,7 @@ function updateUserValues(){
   let at = "Bearer " + Cookies.get("workerAT");
   let url = apiUrl + "/environments/" + environmentID + "/users/" + user;
   let payload = JSON.stringify({
-    username: $('#username').val(),
+    username: $('#usernameFill').val(),
     name: {
       given: $('#fnameFill').val(),
       family: $('#lnameFill').val()
