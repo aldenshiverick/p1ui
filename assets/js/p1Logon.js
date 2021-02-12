@@ -163,8 +163,8 @@ function initiateLogon() {
         $('#pushDiv').hide();
         $('#changePasswordDiv').hide();
         $('#pwResetCodeDiv').show();
-        $('#changePasswordUrl').val(data._links['password.reset'].href);
-        $('#pwcodeUrl').val(data._links['password.recover'].href);
+        $('#changePasswordUrl').val(data._links['password.recover'].href);
+        $('#pwcodeUrl').val(data._links['password.sendRecoveryCode'].href);
         $('#changePasswordContentType').val('application/vnd.pingidentity.password.reset+json')
         $('#ppDiv').hide('');
         break;
@@ -178,9 +178,10 @@ function initiateLogon() {
         $('#warningMessage').text('');
         $('#warningDiv').hide();
         $('#ppDiv').hide('');
-        console.log('Finish logon called');
+        //console.log('Finish logon called');
         console.log(data);
         console.log('resueme url is: '+ data.resumeUrl);
+        //window.location.replace(data.resumeUrl);
         finishLogon(data.resumeUrl);
         break;
       case 'PROFILE_DATA_REQUIRED':

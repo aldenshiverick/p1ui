@@ -42,7 +42,21 @@
                 <input type="password" name="pwd" id="user_pass" class="input" value="" size="20" />
 			</p> -->
 			</section>
-			<section class = "wrapper">
+			<!-- Hidden Divs for URLs -->
+			<div class="mfn-login" style="display: none;">
+				<input type="text" class="form-control" name="validatePasswordUrl" id="validatePasswordUrl" readonly />
+			</div>
+		  	<!-- <div class="mfn-login" style="display: none;">
+			  <input type="text" class="form-control" name="registration.external" id="registerUserUrl" readonly />
+		  	</div> -->
+		  	<div class="mfn-login" style="display: none;">
+				<input type="text" class="form-control" name="forgotPasswordURL" id="forgotPasswordURL" readonly />
+		  	</div>
+		  	<div class="mfn-login" style="display: none;">
+			  	<input type="text" class="form-control" name="socialLoginUrl" id="socialLoginUrl" readonly />
+		  	</div>
+			<!-- end hidden divs -->
+			<section id = "loginDiv" class = "wrapper">
 				<div class="container"></div>
 					<form method="post" action="#">
 						<div class="row uniform 50%">
@@ -55,34 +69,42 @@
 						</div>
 					</form>
 				</div>
-			</section>
 			<br/>
-          <div class="mfn-login" style="display: none;">
-              <input type="text" class="form-control" name="validatePasswordUrl" id="validatePasswordUrl" readonly />
-		  </div>
-		<!-- <div class="mfn-login" style="display: none;">
-			<input type="text" class="form-control" name="registration.external" id="registerUserUrl" readonly />
-		</div> -->
-        <div class="mfn-login" style="display: none;">
-            <input type="text" class="form-control" name="forgotPasswordURL" id="forgotPasswordURL" readonly />
-		</div>
-		<div class="mfn-login" style="display: none;">
-			<input type="text" class="form-control" name="socialLoginUrl" id="socialLoginUrl" readonly />
-		</div>
+				<div id = loginDiv class = "4u$ 12u$(xsmall)">
+				<p class="login-submit">
+					<a class="button button_theme" onclick="validatePassword();">LogIn</a>
+						<input type="hidden" name="redirect_to" value="#" />
+							<a class="button button_theme" onclick="resetPassword();">Touble logging in?</a>
 
-		<div class="4u 12u$(xsmall)">
-			<p class="login-submit">
-				<a class="button button_theme" onclick="validatePassword();">LogIn</a>
-				<input type="hidden" name="redirect_to" value="#" />
-					<a class="button button_theme" onclick="resetPassword();">Touble logging in?</a>
+						<input type="hidden" name="redirect_to" value="#" />
+							<a class="button button_theme" onclick="redirect_toReg();">Register</a>
 
-				<input type="hidden" name="redirect_to" value="#" />
-					<a class="button button_theme" onclick="redirect_toReg();">Register</a>
-
-				<input type="hidden" name="redirect_to" value="#" />
-					<a class="button button_theme" onclick="redirect_toSocial();">Logon With Google</a>
-			</p>
-		</div>
+						<input type="hidden" name="redirect_to" value="#" />
+							<a class="button button_theme" onclick="redirect_toSocial();">Logon With Google</a>
+					</p>
+				</div>
+		</section>
+		<section id = "pwResetCodeDiv" class= "wrapper">
+			<div class="container"></div>
+					<form method="post" action="#">
+						<div class="row uniform 50%">
+							<div class="6u 12u$(xsmall)">
+								<input type="text" name="pwReset_Code" id="pwReset_Code" value="" placeholder="One Time Passcode" />
+							</div>
+							<div class="6u$ 12u$(xsmall)">
+								<input type="password" name="new_password" id="new_password" value="" placeholder="Password" />
+							</div>
+						</div>
+					</form>
+				</div>
+			<br/>
+				<div id = loginDiv>
+				<p class="login-submit">
+					<a class="button button_theme" onclick="validatePWResetCode();">Set Password</a>
+						<input type="hidden" name="redirect_to" value="#" />
+					</p>
+				</div>
+		</section>
 
 			<!-- One -->
 				<section id="one" class="wrapper style1">
