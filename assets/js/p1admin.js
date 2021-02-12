@@ -120,9 +120,10 @@ function updateUserValues(){
   let payload = JSON.stringify({
     username: $('#username').val(),
     name: {
-      given: $('#fname').val(),
-      family: $('#lname').val()
+      given: $('#fnameFill').val(),
+      family: $('#lnameFill').val()
     },
+    email: $('#emailFill').val(),
     birthday: $('#birthday').val(),
     gender: $('#gender').val(),
     //relationship: 
