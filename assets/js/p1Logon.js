@@ -178,11 +178,11 @@ function initiateLogon() {
         $('#warningMessage').text('');
         $('#warningDiv').hide();
         $('#ppDiv').hide('');
-        console.log('Finish logon called');
+        //console.log('Finish logon called');
         console.log(data);
         console.log('resueme url is: '+ data.resumeUrl);
-        window.location.replace(data.resumeUrl);
-        //finishLogon(data.resumeUrl);
+        //window.location.replace(data.resumeUrl);
+        finishLogon(data.resumeUrl);
         break;
       case 'PROFILE_DATA_REQUIRED':
       console.log('rendering PP form');
