@@ -283,9 +283,9 @@ function initiateLogon() {
     Cookies.set('flowID', flowId, {sameSite: 'strict'});
     console.log('flowID cookeis set? ' + flowId);
     
-    console.log('social URL: ' + $('#socialLoginUrl'));
+    console.log('social URL: ' + $('#socialLoginUrl').val());
 
-    location.href = $('#socialLoginUrl');
+    location.href = $('#socialLoginUrl').val();
   }
   
   //-------MFA Calls -------//
