@@ -99,7 +99,7 @@ function initiateLogon() {
         //$('#registerUserUrl').val(data._links['registration.external'].href);
         $('#validatePasswordContentType').val('application/vnd.pingidentity.usernamePassword.check+json');
         $('#forgotPasswordURL').val(data._links["password.forgot"].href);
-        //$('#socialLoginUrl').val(data._embedded.socialProviders[0]._links.authenticate.href);
+        $('#socialLoginUrl').val(data._embedded.socialProviders[0]._links.authenticate.href);
         //$('#partnerLoginUrl').val(data._embedded.socialProviders[1]._links.authenticate.href);
         $('#ppDiv').hide('');
         break;
@@ -278,6 +278,12 @@ function initiateLogon() {
     console.log('flowID cookeis set? ' + flowId);
 
     location.href = 'https://morgapp.ping-eng.com/p1ui/registration.html';
+  }
+  function redirect_toSocial(){
+    Cookies.set('flowID', flowId, {sameSite: 'strict'});
+    console.log('flowID cookeis set? ' + flowId);
+
+    location.href = $('#socialLoginUrl').value;
   }
   
   //-------MFA Calls -------//
