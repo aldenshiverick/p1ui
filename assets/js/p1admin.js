@@ -12,8 +12,8 @@ function adminGetUser(type){
     value = document.getElementById('PassID').value;
     console.log(value);
   }
-  if(type == 'userID'){
-    value = document.getElementById('userID').value;
+  if(type == 'username'){
+    value = document.getElementById('username').value;
     console.log(value);
   }
   console.log(value);
@@ -44,7 +44,7 @@ function adminSetUserValues(userJson) {
   if (Cookies.get("accessToken")) {
     //document.getElementById("usernameFill").value = 'Hello ' + userJson._embedded.users[0].username + "!";
     document.getElementById("usernameFill").innerHTML = 'Viewing ' + userJson._embedded.users[0].username;
-    document.getElementById("username").innerHTML = userJson._embedded.users[0].username;
+    document.getElementById("username").value = userJson._embedded.users[0].username;
     if (userJson._embedded.users[0].name.given != null)
     {
       console.log('given name exisits')
@@ -72,7 +72,6 @@ function adminSetUserValues(userJson) {
       document.getElementById("zip").value = userJson._embedded.users[0].address.postalCode;
     }
     document.getElementById("emailFill").value = userJson._embedded.users[0].email;
-    document.getElementById("userID").value = userJson._embedded.users[0].id;
     //document.getElementById("usernameFill").innerHTML = userJson._embedded.users[0].username;
     //document.getElementById("address").innerHTML=streetAddress;
   } else {
@@ -114,7 +113,7 @@ function setCookies(data){
 function updateUserValues(){
   console.log("updateUserValues was called");
   let method = "PATCH";
-  let user = Cookies.get("userAPIid");
+  let user = Cookies.get("currentUser");
   let at = "Bearer " + Cookies.get("workerAT");
   let url = apiUrl + "/environments/" + environmentID + "/users/" + user;
   let payload = JSON.stringify({
@@ -159,6 +158,6 @@ function updateUserValues(){
     });
   //add brief delay so info is populated
   setTimeout(function() {
-    adminGetUser("userID");
+    adminGetUser("username");
   }, 1000);
 }
