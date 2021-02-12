@@ -282,8 +282,10 @@ function initiateLogon() {
   function redirect_toSocial(){
     Cookies.set('flowID', flowId, {sameSite: 'strict'});
     console.log('flowID cookeis set? ' + flowId);
+    
+    console.log('social URL: ' + $('#socialLoginUrl'));
 
-    location.href = $('#socialLoginUrl').value;
+    location.href = $('#socialLoginUrl');
   }
   
   //-------MFA Calls -------//
