@@ -44,7 +44,7 @@ function adminSetUserValues(userJson) {
   if (Cookies.get("accessToken")) {
     //document.getElementById("usernameFill").value = 'Hello ' + userJson._embedded.users[0].username + "!";
     document.getElementById("usernameFill").innerHTML = 'Viewing ' + userJson._embedded.users[0].username;
-    document.getElementById("username").innerHTML = userJson._embedded.users[0].username;
+    document.getElementById("username").value = userJson._embedded.users[0].username;
     if (userJson._embedded.users[0].name.given != null)
     {
       console.log('given name exisits')
@@ -114,7 +114,7 @@ function setCookies(data){
 function updateUserValues(){
   console.log("updateUserValues was called");
   let method = "PATCH";
-  let user = Cookies.get("userAPIid");
+  let user = Cookies.get("currentUser");
   let at = "Bearer " + Cookies.get("workerAT");
   let url = apiUrl + "/environments/" + environmentID + "/users/" + user;
   let payload = JSON.stringify({
