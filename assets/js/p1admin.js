@@ -12,6 +12,10 @@ function adminGetUser(type){
     value = document.getElementById('PassID').value;
     console.log(value);
   }
+  if(type == 'userID'){
+    value = document.getElementById('userID').value;
+    console.log(value);
+  }
   console.log(value);
   let at = "Bearer " + Cookies.get("workerAT");
   let url = apiUrl + "/environments/" + environmentID + "/users/?filter=" + type + "%20eq%20%22" + value + "%22";
@@ -68,6 +72,7 @@ function adminSetUserValues(userJson) {
       document.getElementById("zip").value = userJson._embedded.users[0].address.postalCode;
     }
     document.getElementById("emailFill").value = userJson._embedded.users[0].email;
+    document.getElementById("userID").value = userJson._embedded.users[0].id;
     //document.getElementById("usernameFill").innerHTML = userJson._embedded.users[0].username;
     //document.getElementById("address").innerHTML=streetAddress;
   } else {
@@ -153,6 +158,6 @@ function updateUserValues(){
     });
   //add brief delay so info is populated
   setTimeout(function() {
-    adminGetUser();
+    adminGetUser("userID");
   }, 1000);
 }
