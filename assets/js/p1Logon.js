@@ -23,25 +23,29 @@ const authorizationUrl =
   }
 
 //----initate logon ---- //
-function initiateLogon() {
-    console.log('initiateLogon called')
-    let url = authorizationUrl;
-    let method = 'GET'
-    //exJax('GET', url, nextStep);
-    $.ajax({
-      url: url,
-      method: method
-    })
-    .done(function(data) {
-      nextStep(data);
-    })
-    .fail(function(data) {
-      console.log('ajax call failed');
-      console.log(data);
-      $('#warningMessage').text(data.responseJSON.details[0].message);
-      $('#warningDiv').show();
-    });
-  }
+// function initiateLogon() {
+//     console.log('initiateLogon called')
+//     let url = authorizationUrl;
+//     let method = 'GET'
+//     //exJax('GET', url, nextStep);
+//     $.ajax({
+//       url: url,
+//       method: method
+//     })
+//     .done(function(data) {
+//       nextStep(data);
+//     })
+//     .fail(function(data) {
+//       console.log('ajax call failed');
+//       console.log(data);
+//       $('#warningMessage').text(data.responseJSON.details[0].message);
+//       $('#warningDiv').show();
+//     });
+//   }
+
+function initiateLogon(){
+  location.href = authorizationUrl;
+}
 
 
   function finishLogon(url){
@@ -280,6 +284,8 @@ function initiateLogon() {
 
     location.href = 'https://morgapp.ping-eng.com/p1ui/registration.html';
   }
+
+
   function redirect_toSocial(){
     Cookies.set('flowID', flowId, {sameSite: 'strict'});
     console.log('flowID cookeis set? ' + flowId);
