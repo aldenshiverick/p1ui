@@ -1,5 +1,5 @@
 // build the authorization url in case we need it
-const flowId = getUrlParameter('flowId');
+
 const authorizationUrl =
   authUrl +
   '/' +
@@ -16,6 +16,8 @@ const authorizationUrl =
   //+
   //'&response_mode=pi.flow';
 
+
+  flowId = getUrlParameter('flowId');
 
   function setUserinfoCookie() {  //put the AT and uuid somewhere handy --> bad coding :)
     let idToken = Cookies.get('idToken');
