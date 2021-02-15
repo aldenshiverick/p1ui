@@ -17,7 +17,7 @@ const authorizationUrl =
   //'&response_mode=pi.flow';
 
 
-  flowId = getUrlParameter('flowId');
+
 
   function setUserinfoCookie() {  //put the AT and uuid somewhere handy --> bad coding :)
     let idToken = Cookies.get('idToken');
@@ -80,10 +80,9 @@ function initiateLogon(){
 function getUrlParameter (parameterName) {
   console.log('getUrlParameter was called');
   let pageUrl = window.location.href;
+  //https://morgapp.ping-eng.com/p1ui/login.html?environmentId=ca3ad373-df71-4eb5-a3b5-76439336e1d6&flowId=00ffb905-7359-4498-8402-4967e91273d9
   const pound = '#';
   const q = '?';
-  const simpleUrl = pageUrl.substring(0, pageUrl.indexOf(pound));
-  console.log('simple url: ' + simpleUrl);
   console.log('pageUrl: ' + pageUrl);
   if (pageUrl.includes(pound)) {
     console.log('pageUrl is not null and has #');
@@ -110,8 +109,6 @@ function getUrlParameter (parameterName) {
       }
 
       console.log(thisParameterName);
-      console.log('remove AT and IDT from URL');
-      window.location.replace(simpleUrl);
     }
   } else if (pageUrl.includes(q)) {
     console.log("pageUrl is not null");
@@ -122,7 +119,10 @@ function getUrlParameter (parameterName) {
     console.log("urlVariables: " + urlVariables);
     for (let i = 0; i < urlVariables.length; i++) {
       let thisParameterName = urlVariables[i].split('=');
-      if (thisParameterName[0] == parameterName) return thisParameterName[1];
+      if (thisParameterName[i] == "flowId") {
+        flowId = thisParameterName[i];
+      }
+      return thisParameterName[1];
     }
   } else {
     console.log("URLparams are not present");
