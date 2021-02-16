@@ -112,19 +112,18 @@ function getUrlParameter () {
     }
   } else if (pageUrl.includes(q)) {
     console.log("pageUrl is not null");
-    pageUrl = pageUrl.substring(pageUrl.indexOf(q));
+    pageUrl = pageUrl.substring(pageUrl.indexOf(q) + 1);
     console.log("removed base at ?:" + pageUrl);
     let urlVariables = pageUrl.split('&');
 
     console.log("urlVariables: " + urlVariables);
     for (let i = 0; i < urlVariables.length; i++) {
+      console.log("if statement to set flowID");
       let thisParameterName = urlVariables[i].split('=');
-      if (thisParameterName[i] == "flowId") {
-        flowId = thisParameterName[i];
+        flowId = thisParameterName[1];
       }
-      return thisParameterName[1];
     }
-  } else {
+   else {
     console.log("URLparams are not present");
     return "";
   }
