@@ -189,7 +189,7 @@ function getNextStep(flowID){
         $('#pushDiv').hide();
         $('#pwResetCodeDiv').hide();
         $('#changePasswordDiv').hide();
-        $('#validatePasswordUrl').val(data._embedded.requiredStep._links['usernamePassword.check'].href);
+        $('#validatePasswordUrl').val(data._links['usernamePassword.check'].href);
         $('#validatePasswordContentType').val('application/vnd.pingidentity.usernamePassword.check+json');
         $('#ppDiv').hide('');
         break;
