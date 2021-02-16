@@ -244,8 +244,6 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-			<script src="assets/js/jquery-2.1.4.min.js"> </script>
-
 			
 
 
@@ -290,18 +288,55 @@
 
 				// do I already have a session cookie?
 
-				if (Cookies.get('accessToken') && Cookies.get('idToken')) {
-					// yes, user already has a session
+			// 	if (Cookies.get('accessToken') && Cookies.get('idToken')) {
+			// 		// yes, user already has a session
 
-					console.log('id_token (' + Cookies.get('idToken') + ')');
-					console.log('accessToken (' + Cookies.get('accessToken') + ')');
+			// 		console.log('id_token (' + Cookies.get('idToken') + ')');
+			// 		console.log('accessToken (' + Cookies.get('accessToken') + ')');
 
 
-				} else {
-						initiateLogon();
-					}
+			// 	} else {
+			// 			initiateLogon();
+			// 		}
 
-			})
+			// })
+
+
+			if (Cookies.get('accessToken') && Cookies.get('idToken')) {
+            // yes, user already has a session
+
+            console.log('id_token (' + Cookies.get('idToken') + ')');
+            console.log('accessToken (' + Cookies.get('accessToken') + ')');
+
+
+          } else {
+
+              // missing accessToken or idToken for this individual
+
+              console.log('No existing user session or token found');
+              // was the user just sent here from p14c?
+              console.log("flowid value: "+flowId);
+              if (flowId) {
+
+                // url has a flowId - so they just arrived from p14c
+
+                console.log('flowId found in url: ' + flowId);
+                console.log('User already bootstrapped through p14c');
+                console.log('Performing p14c ajax query to determine next step');
+                let flowUrl = authUrl + '/' + environmentId + '/flows/' + flowId;
+                exJax('GET', flowUrl, nextStep, 'application/json');
+
+              } else {
+
+                // url does not have a flowId.  and we don't have a session.  send them authorizationUrl
+                console.log('No flowId found in url');
+                console.log('Redirecting to p14c to bootstrap session');
+                window.location.replace(authorizationUrl);
+
+              }
+
+			}
+		}
 	</script>
 
 	</body>
