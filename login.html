@@ -304,9 +304,9 @@
 
 			if (Cookies.get('accessToken') && Cookies.get('idToken')) {
             // yes, user already has a session
-
             console.log('id_token (' + Cookies.get('idToken') + ')');
-            console.log('accessToken (' + Cookies.get('accessToken') + ')');
+			console.log('accessToken (' + Cookies.get('accessToken') + ')');
+			window.location.replace('https://morgapp.ping-eng.com/p1ui/index.html');
 
 
           } else {
@@ -336,7 +336,7 @@
               }
 
 			}
-			})
+		})
 	</script>
 
 	</body>

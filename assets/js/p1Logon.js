@@ -22,7 +22,7 @@ const authorizationUrl =
   function setUserinfoCookie() {  //put the AT and uuid somewhere handy --> bad coding :)
     let idToken = Cookies.get('idToken');
     let idPayload = parseJwt(idToken);
-    Cookies.set('uuid', idPayload.sub);
+    Cookies.set('userAPIid', idPayload.sub);
     //Cookies.set('name', idPayload.given_name);
   }
 
