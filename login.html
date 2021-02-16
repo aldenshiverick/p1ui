@@ -314,9 +314,10 @@
               // missing accessToken or idToken for this individual
 
               console.log('No existing user session or token found');
-              // was the user just sent here from p14c?
+			  // was the user just sent here from p14c?
+			  getUrlParameter();
               console.log("flowid value: "+flowId);
-              if (flowId) {
+              if (flowId != null) {
 
                 // url has a flowId - so they just arrived from p14c
 
