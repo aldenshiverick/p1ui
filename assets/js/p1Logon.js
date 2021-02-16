@@ -77,7 +77,7 @@ function initiateLogon(){
   }
 
   // getUrlParameter function parses out the querystring to fetch specific value (e.g., flowId)
-function getUrlParameter (parameterName) {
+function getUrlParameter () {
   console.log('getUrlParameter was called');
   let pageUrl = window.location.href;
   //https://morgapp.ping-eng.com/p1ui/login.html?environmentId=ca3ad373-df71-4eb5-a3b5-76439336e1d6&flowId=00ffb905-7359-4498-8402-4967e91273d9
@@ -130,6 +130,14 @@ function getUrlParameter (parameterName) {
   }
   console.log("getURLParms done");
 }
+
+function getNextStep(flowID){
+  let flowUrl = authUrl + '/' + environmentID + '/flows/' + flowId;
+  exJax('GET', flowUrl, nextStep, 'application/json');
+}
+
+
+
 
   function setCookies(data){
       console.log("setcookie Called");
