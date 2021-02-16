@@ -21,7 +21,9 @@ function registerUser() {
       region: $('state').val(),
       postalCode: $('zip').val()
     },
-    password: $('#user_pass').val()
+    password: {
+      value: $('#user_pass').val()
+    }
   });
   console.log('url:' + url);
   console.log('payload:' + payload);
