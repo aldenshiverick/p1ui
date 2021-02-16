@@ -32,6 +32,7 @@
 				<h2>Spatial</h2>
 				<p>Lorem ipsum dolor sit amet nullam consequat <br /> interdum vivamus donce sed libero.</p>
 				<ul class="actions">
+				<div id=loginDiv>
 					<form name="loginform" id="loginform" action="#" method="post">
               <p class="login-username">
 								<label for="user_login">Username</label>
@@ -42,23 +43,36 @@
                 <input type="password" name="pwd" id="user_pass" class="input" value="" size="20" />
             </p>
 						<br/>
-          <div class="mfn-login" style="display: none;">
-              <input type="text" class="form-control" name="validatePasswordUrl" id="validatePasswordUrl" readonly />
-          </div>
-          <div class="mfn-login" style="display: none;">
-              <input type="text" class="form-control" name="forgotPasswordURL" id="forgotPasswordURL" readonly />
-          </div>
+				<div class="mfn-login" style="display: none;">
+					<input type="text" class="form-control" name="validatePasswordUrl" id="validatePasswordUrl" readonly />
+				</div>
+				<div class="mfn-login" style="display: none;">
+					<input type="text" class="form-control" name="forgotPasswordURL" id="forgotPasswordURL" readonly />
+				</div>
 
 	          <p class="login-submit">
 	              <a class="button button_theme" onclick="validatePassword();">LogIn</a>
 	              <input type="hidden" name="redirect_to" value="#" />
 								<a class="button button_theme" onclick="resetPassword();">Touble logging in?</a>
-	              <input type="hidden" name="redirect_to" value="#" />
-								<a class="button button_theme" onclick="redirect_toReg();">Register</a>
 						</p>
 					</form>
+				</div>
 				</ul>
+			
+				<div id ="otpDiv" view="hide" class="row uniform 50%">
+					<h2> Enter your OTP </h2>
+					<div class="6u 12u$(xsmall)">
+						<input type="text" name="user_pass" id="user_otp" value="OTP" />
+					</div>
+					<span id="confirm-message2" class="confirm-message"></span>
+					<ul class="actions">
+						<li><a href="#" class="button" onclick="validateOTP();">Validate</a></li> 
+					</ul>
+					
+				</div>
 			</section>
+
+			
 
 			<!-- One -->
 				<section id="one" class="wrapper style1">
