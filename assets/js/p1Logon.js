@@ -101,10 +101,10 @@ function getUrlParameter () {
     console.log('urlVariables: ' + urlVariables);
     for (let i = 0; i < urlVariables.length; i++) {
       const thisParameterName = urlVariables[i].split('=');
-      if (thisParameterName[0] === parameterName) {
-        console.log('parameterName:' + thisParameterName[1]);
-        return thisParameterName[1];
-      }
+      // if (thisParameterName[0] ==  parameterName) {
+      //   console.log('parameterName:' + thisParameterName[1]);
+      //   return thisParameterName[1];
+      // }
       if (thisParameterName[0].includes('access_token')) {
         console.log('setting at cookie : ' + thisParameterName[1]);
         Cookies.set('accessToken', thisParameterName[1]);
