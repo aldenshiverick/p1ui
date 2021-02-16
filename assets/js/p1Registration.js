@@ -105,13 +105,18 @@ function getFlowStatus(){
   let url = authUrl + "/" + environmentID + "/flows/" +flowId;
   exJax('POST', url ,nextStep);
 }
+// function finishAuth(url){
+//   console.log('finishAuth called');
+//   let contentType = 'application/json';
+//   exJax('GET', url , setCookies, contentType);
+//   //location.href = 'https://morgapp.ping-eng.com/p1ui/profile.html';
+// }
+
 function finishAuth(url){
   console.log('finishAuth called');
-  let contentType = 'application/json';
-  exJax('GET', url , setCookies, contentType);
-  //location.href = 'https://morgapp.ping-eng.com/p1ui/profile.html';
+  console.log('Redirect to: '+ url);
+  location.href = url;
 }
-
 
 function setCookies(data){
   console.log("setcookie Called");

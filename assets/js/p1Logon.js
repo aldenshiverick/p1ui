@@ -52,28 +52,36 @@ function initiateLogon(){
 }
 
 
+  // function finishLogon(url){
+  //     //get to redirect to get user info 
+  //     console.log('finishLogon called')
+  //     let method = 'GET'
+  //     console.log('url is: '+ url);
+  //     //exJax('GET', url, nextStep);
+  //     $.ajax({
+  //       url: url,
+  //       method: method,
+  //       xhrFields: {
+  //           withCredentials: true
+  //       }
+  //     })
+  //     .done(function(data) {
+  //       setCookies(data);
+  //     })
+  //     .fail(function(data) {
+  //       console.log('ajax call failed');
+  //       console.log(data);
+  //       $('#warningMessage').text(data.responseJSON.details[0].message);
+  //       $('#warningDiv').show();
+  //     });
+  // }
+
   function finishLogon(url){
-      //get to redirect to get user info 
-      console.log('finishLogon called')
-      let method = 'GET'
-      console.log('url is: '+ url);
-      //exJax('GET', url, nextStep);
-      $.ajax({
-        url: url,
-        method: method,
-        xhrFields: {
-            withCredentials: true
-        }
-      })
-      .done(function(data) {
-        setCookies(data);
-      })
-      .fail(function(data) {
-        console.log('ajax call failed');
-        console.log(data);
-        $('#warningMessage').text(data.responseJSON.details[0].message);
-        $('#warningDiv').show();
-      });
+    console.log('finishLogon called');
+    console.log('Redirect to: '+ url);
+    location.href = url;
+
+    
   }
 
   // getUrlParameter function parses out the querystring to fetch specific value (e.g., flowId)
