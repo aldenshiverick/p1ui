@@ -81,6 +81,7 @@ function updateUserValues(){
   console.log("updateUserValues was called");
   let method = "PATCH";
   let user = Cookies.get("userAPIid");
+  console.log('User APIid: ' +user);
   let at = "Bearer " + Cookies.get("accessToken");
   let url = apiUrl + "/environments/" + environmentID + "/users/" + user;
   let payload = JSON.stringify({
