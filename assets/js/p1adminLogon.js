@@ -281,8 +281,8 @@ function initiateLogon() {
     let payload = JSON.stringify({
       otp: otp
     });
-    //let url = $('#validateOtpUrl').val();
-    let url = (authUrl + '/' + environmentID + '/flows/' + flowId);
+    let url = $('#validateOtpUrl').val();
+    //let url = (authUrl + '/' + environmentID + '/flows/' + flowId);
     let contenttype ='application/vnd.pingidentity.otp.check+json';
     //$('#validateOtpContentType').val();
     console.log('url :' + url);
