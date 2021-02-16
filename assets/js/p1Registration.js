@@ -130,19 +130,19 @@ window.location.replace("https://morgapp.ping-eng.com/p1ui/admin.html");
 }
 
 
-function validateOTP(){
-    console.log('validateOtp called');
-    let otp = $('#user_otp').val();
-    let payload = JSON.stringify({
-      otp: otp
-    });
-    //let url = $('#validateOtpUrl').val();
-    let url = (authUrl + '/' + environmentID + '/flows/' + flowId);
-    let contenttype ='application/vnd.pingidentity.otp.check+json';
-    //$('#validateOtpContentType').val();
-    console.log('url :' + url);
-    console.log('otp: ' + otp);
-    console.log('content' + contenttype);
+// function validateOTP(){
+//     console.log('validateOtp called');
+//     let otp = $('#user_otp').val();
+//     let payload = JSON.stringify({
+//       otp: otp
+//     });
+//     //let url = $('#validateOtpUrl').val();
+//     let url = (authUrl + '/' + environmentID + '/flows/' + flowId);
+//     let contenttype ='application/vnd.pingidentity.otp.check+json';
+//     //$('#validateOtpContentType').val();
+//     console.log('url :' + url);
+//     console.log('otp: ' + otp);
+//     console.log('content' + contenttype);
   
-    exJax('POST', url, nextStep, contenttype, payload);
-  }
+//     exJax('POST', url, nextStep, contenttype, payload);
+//   }
