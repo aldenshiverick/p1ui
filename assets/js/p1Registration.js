@@ -96,14 +96,6 @@ function nextStep(data) {
       console.log('resume url is :' + url);
       finishAuth(url);
       break;
-    case 'VERIFICATION_CODE_REQUIRED':
-      console.log('OTP required');
-      $('#loginDiv').hide();
-      $('#otpDiv').show();
-      $('#pushDiv').hide();
-      $('#verifyUserUrl').val(data._links['user.verify'].href);
-      finishAuth(url);
-      break;
     default:
       console.log('something went wrong');
       break;
@@ -154,4 +146,3 @@ function validateOTP(){
   
     exJax('POST', url, nextStep, contenttype, payload);
   }
-}

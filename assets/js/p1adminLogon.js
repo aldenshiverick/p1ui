@@ -275,7 +275,7 @@ function initiateLogon() {
   
   //-------MFA Calls -------//
   // validate one time passcode function
-  function validateOtp() {
+  function validateOTP() {
     console.log('validateOtp called');
     let otp = $('#otp_login').val();
     let payload = JSON.stringify({
@@ -302,4 +302,3 @@ function initiateLogon() {
     console.log('url ' + url);
     exJax('GET', url, nextStep, contenttype);
   }
-  
