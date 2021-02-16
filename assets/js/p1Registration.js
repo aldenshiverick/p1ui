@@ -9,8 +9,8 @@ function registerUser() {
     username: $('#email').val(),
     email: $('#email').val(),
     name: {
-      given: $('#fname').val(),
-      family: $('#lname').val()
+      family: $('#lname').val(),
+      given: $('#fname').val()
     },
     birthday: $('#birthday').val(),
     gender: $('gender').val(),
