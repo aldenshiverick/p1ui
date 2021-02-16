@@ -28,7 +28,7 @@ function getUserValues() {
   function setUserValues(userJson) {
     console.log("setuserValues was called");
     console.log(userJson);
-    let uuid = Cookies.get("uuid");
+    let uuid = Cookies.get("userAPIid");
     //let streetAddress = userJson.address.streetAddress + " " + userJson.address.locality + ", " + userJson.address.region + " " + userJson.address.postalCode;
     if (Cookies.get("accessToken")) {
       if(userJson.name){
@@ -81,7 +81,7 @@ function updateUserValues(){
   console.log("updateUserValues was called");
   let method = "PATCH";
   let user = Cookies.get("userAPIid");
-  console.log('User APIid: ' +user);
+  console.log('User APIid: ' + user);
   let at = "Bearer " + Cookies.get("accessToken");
   let url = apiUrl + "/environments/" + environmentID + "/users/" + user;
   let payload = JSON.stringify({
