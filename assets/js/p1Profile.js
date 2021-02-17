@@ -47,7 +47,7 @@ function getUserValues() {
         //document.getElementById("daysSkied").value = userJson.daysSkied;
         document.getElementById("daysSkied").innerHTML = 'Days Skied this Year ' + userJson.daysSkied;
       }
-      if(userJson.birthday != null){
+      if(userJson.birthday){
         document.getElementById("birthday").value =  userJson.birthday;
       }
       if(userJson.gender != null){
