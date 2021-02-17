@@ -43,7 +43,7 @@
 						<h4 type=readonly id="daysSkied"></h4>
 						<h5 type=readonly> All Fields Required</h4>
 						<form method="post" action="#">
-							<div class="row uniform 50%">
+							<div id ="profile" class="row uniform 50%">
 								<div class="6u 12u$(xsmall)">
 									<input type="text" name="name" id="fname" value="First Name" />
 								</div>
@@ -104,15 +104,17 @@
 
 					<!-- Buttons -->
 					<section>
-						<ul class="actions">
-							<li><a href="#" class="button" onclick="updateUserValues();">Save</a></li> 
-							<li><a href="#" class="button alt" onclick="getUserValues();">Cancel</a></li>
-						</ul>
+						<div id="buttons">
+							<ul class="actions">
+								<li><a href="#" class="button" onclick="updateUserValues();">Save</a></li> 
+								<li><a href="#" class="button alt" onclick="getUserValues();">Cancel</a></li>
+							</ul>
+						</div>
 					</section>
 
 					<section>
 						<h4> Enable Email MFA</h4>
-						<div class="row uniform 50%">
+						<div id="mfacheck" class="row uniform 50%">
 							<div class="6u 12u$(small)">
 								<input type="checkbox" id="enableMFA" name="enableMFA">
 								<label for="enableMFA">Enable MFA</label>
@@ -123,7 +125,7 @@
 						</div>
 					</section>
 					<section>
-						<div class="row uniform 50%">
+						<div id="passwordChange" class="row uniform 50%">
 							<div class="6u 12u$(xsmall)">
 								<label>Current Password</label> 
 								<input type="password" name="currentPass" id="currentPass" value="" />
@@ -136,9 +138,11 @@
 					</section>
 				</br>
 					<section>
-						<ul class="actions">
-							<li><a href="#" class="button special" onclick="updatePassword();">Save New Password</a></li> 
-						</ul>
+						<div id="changePassbutton">
+							<ul class="actions">
+								<li><a href="#" class="button special" onclick="updatePassword();">Save New Password</a></li> 
+							</ul>
+						</div>
 					</section>
 				</div>
 			</section>

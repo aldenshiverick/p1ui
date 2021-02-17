@@ -205,6 +205,7 @@ function enableEmailMFA(){
       xhr.setRequestHeader('Authorization', at);
     }
   }).done(function(data) {
+    nextStep(data);
     console.log(data);
   })
   .fail(function(data) {
@@ -235,5 +236,31 @@ function OTPVerify(){
 
 
 function disableMFA(){
+
+}
+
+function nextStep(data){
+  status = data.status;
+    console.log('Parsing json to determine next step: ' + status);
+  
+    switch (status) {
+      case 'ACTIVATION_REQUIRED':
+        console.log('Activation required');
+        $('#profile').hide();
+        $('#buttons').hide();
+        $('#otpDiv').show();
+        $('#mfacheck').hide();
+        $('#passwordChange').hide();
+        $('#changePassbutton').hide();
+        break;
+      case 'ACTIVE':
+        $('#profile').show();
+        $('#otpDiv').hide();
+        $('#buttons').show();
+
+        break;
+      default:
+        console.log('Unexpected outcome');
+        break;
 
 }
