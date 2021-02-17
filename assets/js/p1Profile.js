@@ -223,15 +223,31 @@ function OTPVerify(){
   let payload = JSON.stringify({
     verificationCode: $('#user_otp').val()
   });
-  //let url = $('#validateOtpUrl').val();
-  //let url = $('verifyUserUrl').val();
-  let url = authUrl + '/'+ environmentID + '/flows/' + flowId;
+  let url = $('#checkOTP').val()
   let contenttype ='application/vnd.pingidentity.user.verify+json';
   console.log('url :' + url);
   console.log('verificationCode: ' + otp);
   console.log('content' + contenttype);
 
-  exJax('POST', url, nextStep, contenttype, payload);
+  $.ajax({
+    async: "true",
+    url: url,
+    method: method,
+    contentType: 'application/json',
+    data: payload,
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader('Authorization', at);
+    }
+  }).done(function(data) {
+    nextStep(data);
+    console.log(data);
+  })
+  .fail(function(data) {
+    console.log('ajax call failed');
+    console.log(data);
+    $('#warningMessage').text(data.responseJSON.details[0].message);
+    $('#warningDiv').show();
+  });
 }
 
 
@@ -239,9 +255,6 @@ function disableMFA(){
 
 }
 
-function validateUser(){
-
-}
 
 function nextStep(data){
   status = data.status;
@@ -256,6 +269,7 @@ function nextStep(data){
         $('#mfacheck').hide();
         $('#passwordChange').hide();
         $('#changePassbutton').hide();
+        $('#checkOTP').val(data.x._links["device.activate"].href);
         break;
       case 'ACTIVE':
         $('#profile').show();
@@ -264,7 +278,6 @@ function nextStep(data){
         $('#mfacheck').show();
         $('#passwordChange').show();
         $('#changePassbutton').show();
-
         break;
       default:
         console.log('Unexpected outcome');
