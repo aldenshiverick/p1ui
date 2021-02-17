@@ -269,7 +269,7 @@ function nextStep(data){
         $('#mfacheck').hide();
         $('#passwordChange').hide();
         $('#changePassbutton').hide();
-        $('#checkOTP').val(data.x._links["device.activate"].href);
+        $('#checkOTP').val(data._links["device.activate"].href);
         break;
       case 'ACTIVE':
         $('#profile').show();
