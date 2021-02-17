@@ -2,7 +2,7 @@
 const environmentID = 'ca3ad373-df71-4eb5-a3b5-76439336e1d6'; // env ID from p1 console
 const baseUrl = 'https://morgapp.ping-eng.com/p1ui'; //Where this app lives
 
-const scopes = 'openid profile email address phone p1:update:user p1:read:user p1:reset:userPassword p1:read:userPassword p1:validate:userPassword p1:create:device'; // default scopes to request
+const scopes = 'openid profile email address phone p1:update:user p1:read:user p1:reset:userPassword p1:read:userPassword p1:validate:userPassword p1:create:device p1:update:device p1:read:device p1:delet:device'; // default scopes to request
 const responseType = 'token id_token'; // tokens to recieve
 
 const landingUrl = baseUrl + '/index.html'; // url to send the person once authentication is complete
