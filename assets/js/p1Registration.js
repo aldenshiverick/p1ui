@@ -87,6 +87,7 @@ function nextStep(data) {
       console.log('Verify email');
       $('#reg').hide();
       $('#otpDiv').show();
+      $('#ppDiv').hide();
       
       break;
     case 'COMPLETED':
@@ -95,6 +96,18 @@ function nextStep(data) {
       let accessToken = data.accessToken;
       console.log('resume url is :' + url);
       finishAuth(url);
+      break;
+    case 'PROFILE_DATA_REQUIRED':
+      console.log('rendering PP form');
+        $('#reg').hide();
+        $('#otpDiv').hide();
+        $('#pushDiv').hide();
+        $('#changePasswordDiv').hide();
+        $('#pwResetCodeDiv').hide();
+        $('#warningMessage').hide('');
+        $('#warningDiv').hide();
+        $('#ppDiv').show();
+        setPPValues(data);
       break;
     default:
       console.log('something went wrong');
@@ -128,6 +141,27 @@ Cookies.set('userAPIid', userAPIid,{ sameSite: 'strict' });
 Cookies.set('accessToken', accessToken, { sameSite: 'strict' });
 window.location.replace("https://morgapp.ping-eng.com/p1ui/admin.html");
 }
+
+
+ //------------ Progessive Profiling -----//
+ function setPPValues(data){
+  console.log('setPPValues called');
+  document.getElementById("prompt").innerHTML = data._embedded.promptText;
+  let url = data._links["user.update"].href;
+  let method = "POST";
+  console.log('URL: ' + url);
+  let contentType = "application/vnd.pingidentity.user.update+json";
+  let payload = JSON.stringify({
+    name: {
+      given: $('#fname').val(),
+      family: $('#lname').val()
+    }
+  });
+
+  exJax(method, url, nextStep, contentType)
+}
+
+
 
 
 // function validateOTP(){
