@@ -306,12 +306,14 @@ function nextStep(data){
         $('#checkOTP').val(data._links["device.activate"].href);
         break;
       case 'ACTIVE':
+        console.log('case: ACTIVE')
         $('#profile').show();
         $('#buttons').show();
         $('#otpDiv').hide();
         $('#mfacheck').show();
         $('#passwordChange').show();
         $('#changePassbutton').show();
+        enableMFA();
         break;
       default:
         console.log('Unexpected outcome');
