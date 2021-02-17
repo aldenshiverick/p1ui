@@ -410,6 +410,7 @@ function getNextStep(flowID){
   document.getElementById("prompt").innerHTML = data._embedded.promptText;
   document.getElementById("label1").innerHTML = data._embedded.attributes[0].displayName;
   document.getElementById("label2").innerHTML = data._embedded.attributes[1].displayName;
+  console.log('label2: ' + data._embedded.attributes[0].displayName);
   console.log('label2: ' + data._embedded.attributes[1].displayName);
 }
 function setPPValues(){
