@@ -271,7 +271,7 @@ function getNextStep(flowID){
         $('#warningMessage').hide('');
         $('#warningDiv').hide();
         $('#ppDiv').text('');
-        setPPValues(data);
+        getPPValues(data);
       break;
       default:
         console.log('Unexpected outcome');
@@ -405,7 +405,7 @@ function getNextStep(flowID){
 
    //------------ Progessive Profiling -----//
  function getPPValues(data){
-  console.log('setPPValues called');
+  console.log('getPPValues called');
   document.getElementById("prompt").innerHTML = data._embedded.promptText;
   document.getElementById("fnamelabel").innerHTML = data._embedded.attributes[0].displayName;
   document.getElementById("lnamelabel").innerHTML = data._embedded.attributes[1].displayName;
