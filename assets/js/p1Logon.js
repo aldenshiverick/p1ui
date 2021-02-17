@@ -270,7 +270,7 @@ function getNextStep(flowID){
         $('#pwResetCodeDiv').hide();
         $('#warningMessage').hide('');
         $('#warningDiv').hide();
-        $('#ppDiv').text('');
+        $('#ppDiv').show();
         getPPValues(data);
       break;
       default:
