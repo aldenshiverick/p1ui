@@ -401,19 +401,27 @@ function getNextStep(flowID){
   
 
   //------------ Progessive Profiling -----//
-  function setPPValues(data){
-    console.log('setPPValues called');
-    document.getElementById("prompt").innerHTML = data._embedded.promptText;
-    let url = data._links["user.update"].href;
-    let method = "POST";
-    console.log('URL: ' + url);
-    let contentType = "application/vnd.pingidentity.user.update+json";
-    let payload = JSON.stringify({
-      name: {
-        given: $('#fname').val(),
-        family: $('#lname').val()
-      }
-    });
 
-    exJax(method, url, nextStep, contentType)
-  }
+
+   //------------ Progessive Profiling -----//
+ function getPPValues(data){
+  console.log('setPPValues called');
+  document.getElementById("prompt").innerHTML = data._embedded.promptText;
+  document.getElementById("fnamelabel").innerHTML = data._embedded.attributes[0].displayName;
+  document.getElementById("lnamelabel").innerHTML = data._embedded.attributes[1].displayName;
+  console.log('fname: ' + data._embedded.attributes[1].displayName);
+}
+function setPPValues(){
+  let url = $('#ppURL').val();
+  let method = "POST";
+  console.log('URL: ' + url);
+  let contentType = "application/vnd.pingidentity.user.update+json";
+  let payload = JSON.stringify({
+    name: {
+      given: $('#fname').val(),
+      family: $('#lname').val()
+    }
+  });
+
+  exJax(method, url, nextStep, contentType, payload);
+}
