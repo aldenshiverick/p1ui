@@ -223,6 +223,7 @@ function OTPVerify(){
   let payload = JSON.stringify({
     verificationCode: $('#user_otp').val()
   });
+  let method = 'POST'
   let url = $('#checkOTP').val()
   let contenttype ='application/vnd.pingidentity.user.verify+json';
   console.log('url :' + url);
