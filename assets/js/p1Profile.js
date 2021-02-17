@@ -168,3 +168,67 @@ function updatePassword(){
     getUserValues();
   }, 1000);
 }
+
+function updateMFA(){
+  if (document.getElementById("enableMFA").value == 'true'){
+    enableEmailMFA();
+  }
+  else {
+    disableMFA();
+  }
+}
+
+function enableEmailMFA(){
+  let user = Cookies.get("userAPIid");
+  let url = apiUrl + "/environments/" + envID + "/users/" + user + "/devices/";
+  console.log("url is: " + url);
+  let at = "Bearer " + Cookies.get("accessToken");
+  let method = "POST";
+
+  let payload = JSON.stringify({
+    type: 'EMAIL',
+    newPassword: $('#email').val()
+  });
+
+  $.ajax({
+    async: "true",
+    url: url,
+    method: method,
+    contentType: 'application/json',
+    data: payload,
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader('Authorization', at);
+    }
+  }).done(function(data) {
+    console.log(data);
+  })
+  .fail(function(data) {
+    console.log('ajax call failed');
+    console.log(data);
+    $('#warningMessage').text(data.responseJSON.details[0].message);
+    $('#warningDiv').show();
+  });
+
+}
+ 
+function OTPVerify(){
+  console.log('OTPVerify called');
+  let otp = $('#user_otp').val();
+  let payload = JSON.stringify({
+    verificationCode: $('#user_otp').val()
+  });
+  //let url = $('#validateOtpUrl').val();
+  //let url = $('verifyUserUrl').val();
+  let url = authUrl + '/'+ environmentID + '/flows/' + flowId;
+  let contenttype ='application/vnd.pingidentity.user.verify+json';
+  console.log('url :' + url);
+  console.log('verificationCode: ' + otp);
+  console.log('content' + contenttype);
+
+  exJax('POST', url, nextStep, contenttype, payload);
+}
+
+
+function disableMFA(){
+
+}

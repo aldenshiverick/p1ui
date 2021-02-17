@@ -108,15 +108,28 @@
 							<li><a href="#" class="button alt" onclick="getUserValues();">Cancel</a></li>
 						</ul>
 					</section>
+
+					<section>
+						<h4> Enable Email MFA</h4>
+						<div class="row uniform 50%">
+							<div class="6u 12u$(small)">
+								<input type="checkbox" id="enableMFA" name="enableMFA">
+								<label for="enableMFA">Enable MFA</label>
+							</div>
+							<ul class="actions">
+								<li><a href="#" class="button special" onclick="enableEmailMFA();">Add MFA</a></li> 
+							</ul>
+						</div>
+					</section>
 					<section>
 						<div class="row uniform 50%">
 							<div class="6u 12u$(xsmall)">
 								<label>Current Password</label> 
-								<input type="password" name="currentPass" id="currentPass" value="Current Password" />
+								<input type="password" name="currentPass" id="currentPass" value="" />
 							</div>
 							<div class="6u$ 12u$(xsmall)">
 								<label>New Password</label>
-								<input type="password" name="newPass" id="newPass" value="New Password" />
+								<input type="password" name="newPass" id="newPass" value="" />
 							</div>
 						</div>
 					</section>
