@@ -184,7 +184,7 @@ function updateMFA(){
 
 function enableEmailMFA(){
   let user = Cookies.get("userAPIid");
-  let url = apiUrl + "/environments/" + envID + "/users/" + user + "/devices/";
+  let url = apiUrl + "/environments/" + environmentID + "/users/" + user + "/devices/";
   console.log("url is: " + url);
   let at = "Bearer " + Cookies.get("accessToken");
   let method = "POST";
