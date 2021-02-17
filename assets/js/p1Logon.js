@@ -425,6 +425,7 @@ function setPPValues(){
       label2: $('#label2').val()
     }
   });
+  console.log('payload: ' + payload);
 
   exJax(method, url, nextStep, contentType, payload);
 }
