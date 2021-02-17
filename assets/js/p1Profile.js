@@ -225,10 +225,8 @@ function OTPVerify(){
     otp: $('#user_otp').val()
   });
   let url = $('#checkOTP').val();
-  //let contenttype ='application/vnd.pingidentity.user.verify+json';
   console.log('url :' + url);
   console.log('verificationCode: ' + otp);
-  console.log('content' + contenttype);
 
   $.ajax({
     async: "true",
