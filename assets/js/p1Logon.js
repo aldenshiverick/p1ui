@@ -420,6 +420,7 @@ function setPPValues(){
   let contentType = "application/vnd.pingidentity.user.update+json";
   let label1 = $('#label1ID').val();
   let label2 = $('#label2ID').val();
+  let values = label1 +":" $('#label1').val() +"," + label2 +":" + $('#label2').val();
   let payload = JSON.stringify({
     name: {
       label1: $('#label1').val(),

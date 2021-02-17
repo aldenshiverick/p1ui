@@ -1,6 +1,7 @@
 function adminGetUser(type){
   //{{apiPath}}/environments/{{envID}}/users/?filter=username%20eq%20%22lsmith%22
   console.log('adminGetUser called');
+
   let method = "GET";
   //let type = type;
   let value = "";
@@ -40,6 +41,17 @@ function adminSetUserValues(userJson) {
   console.log("adminsetuserValues was called");
   console.log(userJson);
   console.log(userJson._embedded.users[0].id);
+  //make all values null 
+  document.getElementById("fnameFill").value = "";
+  document.getElementById("lnameFill").value = "";
+  document.getElementById("emailFill").value = "";
+  document.getElementById("birthday").value = "";
+  document.getElementById("address").value = "";
+  document.getElementById("city").value = "";
+  document.getElementById("state").value = "";
+  document.getElementById("zip").value = "";
+
+
   Cookies.set('currentUser', userJson._embedded.users[0].id);
   if (Cookies.get("accessToken")) {
     //document.getElementById("usernameFill").value = 'Hello ' + userJson._embedded.users[0].username + "!";
