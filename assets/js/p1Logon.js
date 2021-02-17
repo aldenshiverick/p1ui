@@ -408,8 +408,8 @@ function getNextStep(flowID){
  function getPPValues(data){
   console.log('getPPValues called');
   document.getElementById("prompt").innerHTML = data._embedded.promptText;
-  document.getElementById("fnamelabel").innerHTML = data._embedded.attributes[0].displayName;
-  document.getElementById("lnamelabel").innerHTML = data._embedded.attributes[1].displayName;
+  document.getElementById("label1").innerHTML = data._embedded.attributes[0].displayName;
+  document.getElementById("label2").innerHTML = data._embedded.attributes[1].displayName;
   console.log('fname: ' + data._embedded.attributes[1].displayName);
 }
 function setPPValues(){
@@ -417,10 +417,12 @@ function setPPValues(){
   let method = "POST";
   console.log('URL: ' + url);
   let contentType = "application/vnd.pingidentity.user.update+json";
+  let label1 = $('#label1ID').val();
+  let label2 = $('#label2ID').val();
   let payload = JSON.stringify({
     name: {
-      given: $('#fname').val(),
-      family: $('#lname').val()
+      label1: $('#label1').val(),
+      label2: $('#label2').val()
     }
   });
 
