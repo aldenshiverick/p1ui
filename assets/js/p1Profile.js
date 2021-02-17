@@ -172,7 +172,7 @@ function updatePassword(){
 function updateMFA(){
   console.log("updateMFA called");
   console.log("checkbox value: " + document.getElementById("enableMFA").value);
-  if (document.getElementById("enableMFA").value == 'true'){
+  if (document.getElementById("enableMFA").value == 'on'){
     console.log('MFA Enabled');
     enableEmailMFA();
   }
