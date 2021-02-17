@@ -240,7 +240,7 @@ function disableMFA(){
 }
 
 function validateUser(){
-  
+
 }
 
 function nextStep(data){
@@ -269,5 +269,6 @@ function nextStep(data){
       default:
         console.log('Unexpected outcome');
         break;
+    }
 
 }
