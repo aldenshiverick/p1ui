@@ -254,6 +254,41 @@ function disableMFA(){
 
 }
 
+function enableMFA(){
+  console.log("Enable MFA was called");
+  let method = "PUT";
+  let user = Cookies.get("userAPIid");
+  console.log('User APIid: ' + user);
+  let at = "Bearer " + Cookies.get("accessToken");
+  let url = apiUrl + "/environments/" + environmentID + "/users/" + user +"/mfaEnabled";
+  let payload = JSON.stringify({
+    "mfaEnabled": true
+  });
+  console.log(payload);
+  console.log('ajax (' + url + ')');
+  console.log('at =' + at);
+  console.log("make ajax call");
+  $.ajax({
+      async: "true",
+      url: url,
+      method: method,
+      dataType: 'json',
+      contentType: 'application/json',
+      data: payload,
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('Authorization', at);
+      }
+    }).done(function(data) {
+      console.log(data);
+    })
+    .fail(function(data) {
+      console.log('ajax call failed');
+      console.log(data);
+      $('#warningMessage').text(data.responseJSON.details[0].message);
+      $('#warningDiv').show();
+    });
+}
+
 
 function nextStep(data){
   status = data.status;
