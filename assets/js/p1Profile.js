@@ -220,6 +220,7 @@ function enableEmailMFA(){
 function OTPVerify(){
   console.log('OTPVerify called');
   let otp = $('#user_otp').val();
+  let at = "Bearer " + Cookies.get("accessToken");
   let payload = JSON.stringify({
     verificationCode: $('#user_otp').val()
   });
