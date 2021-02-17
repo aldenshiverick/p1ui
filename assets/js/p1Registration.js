@@ -176,7 +176,7 @@ function setPPValues(){
     }
   });
 
-  exJax(method, url, nextStep, contentType)
+  exJax(method, url, nextStep, contentType, payload);
 }
 
 
