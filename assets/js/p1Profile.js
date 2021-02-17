@@ -222,9 +222,8 @@ function OTPVerify(){
   let otp = $('#user_otp').val();
   let at = "Bearer " + Cookies.get("accessToken");
   let payload = JSON.stringify({
-    verificationCode: $('#user_otp').val()
+    otp: $('#user_otp').val()
   });
-  let method = 'POST';
   let url = $('#checkOTP').val();
   let contenttype ='application/vnd.pingidentity.user.verify+json';
   console.log('url :' + url);
@@ -234,7 +233,7 @@ function OTPVerify(){
   $.ajax({
     async: "true",
     url: url,
-    method: method,
+    method: "POST",
     contentType: 'application/json',
     data: payload,
     beforeSend: function(xhr) {
