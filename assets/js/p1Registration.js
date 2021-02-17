@@ -107,6 +107,8 @@ function nextStep(data) {
         $('#warningMessage').hide('');
         $('#warningDiv').hide();
         $('#ppDiv').show();
+        $('#ppURL').val(data._links["user.update"].href);
+
         setPPValues(data);
       break;
     default:
@@ -144,10 +146,26 @@ window.location.replace("https://morgapp.ping-eng.com/p1ui/admin.html");
 
 
  //------------ Progessive Profiling -----//
- function setPPValues(data){
+ function getPPValues(data){
   console.log('setPPValues called');
   document.getElementById("prompt").innerHTML = data._embedded.promptText;
-  let url = data._links["user.update"].href;
+  document.getElementById("fname").innerHTML = data._embedded.attributes[0].displayName;
+  document.getElementById("fname").innerHTML = data._embedded.attributes[1].displayName;
+  // let url = data._links["user.update"].href;
+  // let method = "POST";
+  // console.log('URL: ' + url);
+  // let contentType = "application/vnd.pingidentity.user.update+json";
+  // let payload = JSON.stringify({
+  //   name: {
+  //     given: $('#fname').val(),
+  //     family: $('#lname').val()
+  //   }
+  // });
+
+  // exJax(method, url, nextStep, contentType)
+}
+function setPPValues(){
+  let url = $('#ppURL').val();
   let method = "POST";
   console.log('URL: ' + url);
   let contentType = "application/vnd.pingidentity.user.update+json";
