@@ -271,6 +271,7 @@ function getNextStep(flowID){
         $('#warningMessage').hide('');
         $('#warningDiv').hide();
         $('#ppDiv').text('');
+        setPPValues(data);
       break;
       default:
         console.log('Unexpected outcome');
@@ -398,3 +399,21 @@ function getNextStep(flowID){
     exJax('GET', url, nextStep, contenttype);
   }
   
+
+  //------------ Progessive Profiling -----//
+  function setPPValues(data){
+    console.log('setPPValues called');
+    document.getElementById("prompt").innerHTML = data._embedded.promptText;
+    let url = data._links["user.update"].href;
+    let method = "POST";
+    console.log('URL: ' + url);
+    let contentType = "application/vnd.pingidentity.user.update+json";
+    let payload = JSON.stringify({
+      name: {
+        given: $('#fname').val(),
+        family: $('#lname').val()
+      }
+    });
+
+    exJax(method, url, nextStep, contentType)
+  }
