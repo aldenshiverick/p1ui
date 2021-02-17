@@ -170,10 +170,13 @@ function updatePassword(){
 }
 
 function updateMFA(){
+  console.log("updateMFA called");
   if (document.getElementById("enableMFA").value == 'true'){
+    console.log('MFA Enabled');
     enableEmailMFA();
   }
   else {
+    console.log('MFA disabled');
     disableMFA();
   }
 }

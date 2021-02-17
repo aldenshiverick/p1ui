@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body onload="getUserValues();">
+	<!-- <body> -->
 
 		<!-- Header -->
 			<header id="header">
@@ -46,37 +47,15 @@
 								<div class="6u 12u$(xsmall)">
 									<input type="text" name="name" id="fname" value="First Name" />
 								</div>
-								<div class="6u 12u$(xsmall)">
+								<div class="6u$ 12u$(xsmall)">
 									<input type="text" name="name" id="lname" value="Last Name" />
 								</div>
-								<div class="6u 12u$(xsmall)">
+								<div class="4u">
 									<input type="email" name="email" id="email" value="email" />
 								</div>
-								<div class="6u 12u$(xsmall)" style="white-space:nowrap"> 
-									<label for="birthday">
-										Birthday
-										<input type="date" name="birthday" id="birthday" value="birthday" />
-									</label> 
-								</div>
-								<div class="6u 12u$(xsmall)">
-									<input type="text"  
-										   id="address" 
-										   value="address">
-								</div>
-								<div class="6u 12u$(xsmall)">
-									<input type="text" 
-										   id="city" 
-										   value="city">
-								</div>	
-								<div class="6u 12u$(xsmall)">		   
-									<input type="text" 
-										   id="state" 
-										   value="state">
-								</div>
-								<div class="6u 12u$(xsmall)">
-									<input type="text" 
-										   id="zip" 
-										   value="zip">
+								<div class="4u 12u$(xsmall)"> 
+									<lable for="birthday">Birthday</lable>
+									<input type="date" name="birthday" id="birthday" value="birthday" />
 								</div>
 								<!-- <div class="4u 12u$(xsmall)">
 									<div class="select-wrapper">
@@ -99,6 +78,26 @@
 										</select>
 									</div>
 								</div> -->
+								<div class="6u 12u$(xsmall)">
+									<input type="text"  
+										   id="address" 
+										   value="address">
+								</div>
+								<div class="6u 12u$(xsmall)">
+									<input type="text" 
+										   id="city" 
+										   value="city">
+								</div>	
+								<div class="6u 12u$(xsmall)">		   
+									<input type="text" 
+										   id="state" 
+										   value="state">
+								</div>
+								<div class="6u 12u$(xsmall)">
+									<input type="text" 
+										   id="zip" 
+										   value="zip">
+								</div>
 							</div>
 						</form>
 					</section>
@@ -119,7 +118,7 @@
 								<label for="enableMFA">Enable MFA</label>
 							</div>
 							<ul class="actions">
-								<li><a href="#" class="button special" onclick="enableEmailMFA();">Add MFA</a></li> 
+								<li><a href="#" class="button special" onclick="updateMFA();">Add MFA</a></li> 
 							</ul>
 						</div>
 					</section>
