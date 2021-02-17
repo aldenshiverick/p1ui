@@ -239,6 +239,10 @@ function disableMFA(){
 
 }
 
+function validateUser(){
+  
+}
+
 function nextStep(data){
   status = data.status;
     console.log('Parsing json to determine next step: ' + status);
@@ -255,8 +259,11 @@ function nextStep(data){
         break;
       case 'ACTIVE':
         $('#profile').show();
-        $('#otpDiv').hide();
         $('#buttons').show();
+        $('#otpDiv').hide();
+        $('#mfacheck').show();
+        $('#passwordChange').show();
+        $('#changePassbutton').show();
 
         break;
       default:
