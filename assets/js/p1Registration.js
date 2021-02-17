@@ -109,7 +109,7 @@ function nextStep(data) {
         $('#ppDiv').show();
         $('#ppURL').val(data._links["user.update"].href);
 
-        setPPValues(data);
+        getPPValues(data);
       break;
     default:
       console.log('something went wrong');
