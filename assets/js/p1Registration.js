@@ -151,6 +151,7 @@ window.location.replace("https://morgapp.ping-eng.com/p1ui/admin.html");
   document.getElementById("prompt").innerHTML = data._embedded.promptText;
   document.getElementById("fname").innerHTML = data._embedded.attributes[0].displayName;
   document.getElementById("fname").innerHTML = data._embedded.attributes[1].displayName;
+  console.log('fname: ' + document.getElementById("fname").innerHTML = data._embedded.attributes[1].displayName )
   // let url = data._links["user.update"].href;
   // let method = "POST";
   // console.log('URL: ' + url);
