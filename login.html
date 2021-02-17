@@ -107,14 +107,22 @@
 		</section>
 
 		<section>
+			<div class="mfn-login" style="display: none;">
+				<input type="text" class="form-control" name="ppURL" id="ppURL" readonly />
+			</div>
 			<div id = "ppDiv" class = "container">
-				<h4 id = "prompt"> </h4>
+				<h4 id="prompt"> </h4>
 				<div class="6u 12u$(xsmall)">
-					<input type="text" name="name" id="fname" value="First Name" />
+					<label id =fnamelabel style="display:inline-block;"></label>
+					<input type="text" name="name" id="fname" value="" />
 				</div>
 				<div class="6u$ 12u$(xsmall)">
-					<input type="text" name="name" id="lname" value="Last Name" />
+					<label id =lnamelabel style="display:inline-block;"></label>
+					<input type="text" name="name" id="lname" value="" />
 				</div>
+				<ul class="actions">
+					<li><a href="#" class="button" onclick="setPPValues();">Continue</a></li> 
+				</ul>
 			</div>
 
 		</section> 
