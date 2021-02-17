@@ -271,6 +271,7 @@ function getNextStep(flowID){
         $('#warningMessage').hide('');
         $('#warningDiv').hide();
         $('#ppDiv').show();
+        $('#ppURL').val(data._links["user.update"].href);
         getPPValues(data);
       break;
       default:
