@@ -316,6 +316,7 @@ function nextStep(data){
         enableMFA();
         break;
       default:
+        $('#otpDiv').hide();
         console.log('Unexpected outcome');
         break;
     }
