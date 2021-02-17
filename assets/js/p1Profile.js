@@ -225,7 +225,7 @@ function OTPVerify(){
     otp: $('#user_otp').val()
   });
   let url = $('#checkOTP').val();
-  let contenttype ='application/vnd.pingidentity.user.verify+json';
+  //let contenttype ='application/vnd.pingidentity.user.verify+json';
   console.log('url :' + url);
   console.log('verificationCode: ' + otp);
   console.log('content' + contenttype);
@@ -234,7 +234,7 @@ function OTPVerify(){
     async: "true",
     url: url,
     method: "POST",
-    contentType: 'application/json',
+    contentType: 'application/vnd.pingidentity.device.activate+json',
     data: payload,
     beforeSend: function(xhr) {
       xhr.setRequestHeader('Authorization', at);
