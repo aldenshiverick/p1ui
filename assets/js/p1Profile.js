@@ -53,9 +53,9 @@ function getUserValues() {
       if(userJson.gender != null){
         document.getElementById("gender").value = userJson.gender;
       }
-      if(userJson.relationship != null){
-        document.getElementById("relationship").value = userJson.relationship;
-      }
+      // if(userJson.relationship != null){
+      //   document.getElementById("relationship").value = userJson.relationship;
+      // }
       if(userJson.address.streetAddress != null){
         document.getElementById("address").value = userJson.address.streetAddress;
       }
