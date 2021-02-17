@@ -150,7 +150,7 @@ window.location.replace("https://morgapp.ping-eng.com/p1ui/admin.html");
   console.log('setPPValues called');
   document.getElementById("prompt").innerHTML = data._embedded.promptText;
   document.getElementById("fname").innerHTML = data._embedded.attributes[0].displayName;
-  document.getElementById("fname").innerHTML = data._embedded.attributes[1].displayName;
+  document.getElementById("lname").innerHTML = data._embedded.attributes[1].displayName;
   console.log('fname: ' + data._embedded.attributes[1].displayName);
   // let url = data._links["user.update"].href;
   // let method = "POST";
