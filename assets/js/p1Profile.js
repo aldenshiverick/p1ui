@@ -192,7 +192,8 @@ function enableEmailMFA(){
   let payload = JSON.stringify({
     type: 'EMAIL',
     newPassword: $('#email').val()
-  });
+  }); 
+  console.log('Payload: ' + payload);
 
   $.ajax({
     async: "true",
