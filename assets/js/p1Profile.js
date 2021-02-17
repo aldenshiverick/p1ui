@@ -47,7 +47,7 @@ function getUserValues() {
         //document.getElementById("daysSkied").value = userJson.daysSkied;
         document.getElementById("daysSkied").innerHTML = 'Days Skied this Year ' + userJson.daysSkied;
       }
-      if(userJson.birthday){
+      if(userJson.birthday != null){
         document.getElementById("birthday").value =  userJson.birthday;
       }
       if(userJson.gender != null){
@@ -91,7 +91,7 @@ function updateUserValues(){
       family: $('#lname').val()
     },
     birthday: $('#birthday').val(),
-    gender: $('#gender').val(),
+    //gender: $('#gender').val(),
     //relationship: 
     address: {
       streetAddress: $('#address').val(),
