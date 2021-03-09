@@ -4,6 +4,8 @@
 	templated.co @templatedco
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
+<!-- This is the administrator's login page -->
+<!-- They login here, can choose to reset their password, and are also prompted with an OTP after successfully authenticating with username/password -->
 <html>
 	<head>
 		<title>Spatial by TEMPLATED</title>
@@ -27,7 +29,7 @@
 
 			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 
-		<!-- Banner -->
+		<!-- Login Form -->
 			<section id="banner">
 				<h2>Spatial</h2>
 				<p>Lorem ipsum dolor sit amet nullam consequat <br /> interdum vivamus donce sed libero.</p>
@@ -49,7 +51,7 @@
 				<div class="mfn-login" style="display: none;">
 					<input type="text" class="form-control" name="forgotPasswordURL" id="forgotPasswordURL" readonly />
 				</div>
-
+		<!-- Submit Credentials or Forgot Password -->
 	          	<p class="login-submit">
 	              <a class="button button_theme" onclick="validatePassword();">LogIn</a>
 	              <input type="hidden" name="redirect_to" value="#" />
@@ -58,7 +60,7 @@
 					</form>
 				</div>
 				</ul>
-			
+		<!-- Enter the OTP sent to user's Email -->
 				<div id ="otpDiv" view="hide" class="row uniform 50%">
 					<h2> Enter your OTP </h2>
 					<div class="6u 12u$(xsmall)">
@@ -75,7 +77,7 @@
 				</div>
 			</section>
 
-			
+		<!-- Miscellaneous -->
 
 			<!-- One -->
 				<section id="one" class="wrapper style1">
